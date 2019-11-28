@@ -18,35 +18,35 @@
 <acme:form>
     <fieldset>
         <legend>
-            <acme:message code="administrator.banner.non-commercial.banner"/>
+            <acme:message code="sponsor.banner.non-commercial.banner"/>
         </legend>
-        <acme:form-textbox code="administrator.banner.non-commercial.picture" path="picture"/>
-        <acme:form-textbox code="administrator.banner.non-commercial.slogan" path="slogan"/>
-        <acme:form-textbox code="administrator.banner.non-commercial.targetURL" path="targetURL"/>
+        <acme:form-textbox code="sponsor.banner.non-commercial.picture" path="picture"/>
+        <acme:form-textbox code="sponsor.banner.non-commercial.slogan" path="slogan"/>
+        <acme:form-textbox code="sponsor.banner.non-commercial.targetURL" path="targetURL"/>
     </fieldset>
     <fieldset>
-        <acme:form-textbox code="administrator.banner.non-commercial.jingle" path="jingle"/>
+        <acme:form-textbox code="sponsor.banner.non-commercial.jingle" path="jingle"/>
     </fieldset>
 
     <acme:form-submit test="${command == 'show'}"
-                      code="administrator.banner.non-commercial.form.button.update"
-                      action="/administrator/non-commercial-banner/update"/>
+                      code="sponsor.banner.non-commercial.form.button.update"
+                      action="/sponsor/non-commercial-banner/update"/>
 
     <acme:form-submit test="${command == 'show'}"
-                      code="administrator.banner.non-commercial.form.button.delete"
-                      action="/administrator/non-commercial-banner/delete"/>
+                      code="sponsor.banner.non-commercial.form.button.delete"
+                      action="/sponsor/non-commercial-banner/delete"/>
 
     <acme:form-submit test="${command == 'create'}"
-                      code="administrator.banner.non-commercial.form.button.create"
-                      action="/administrator/non-commercial-banner/create"/>
+                      code="sponsor.banner.non-commercial.form.button.create"
+                      action="/sponsor/non-commercial-banner/create"/>
 
     <acme:form-submit test="${command == 'update'}"
-                      code="administrator.banner.non-commercial.form.button.update"
-                      action="/administrator/non-commercial-banner/update"/>
+                      code="sponsor.banner.non-commercial.form.button.update"
+                      action="/sponsor/non-commercial-banner/update"/>
 
     <acme:form-submit test="${command == 'delete'}"
-                      code="administrator.banner.non-commercial.form.button.delete"
-                      action="/administrator/non-commercial-banner/delete"/>
+                      code="sponsor.banner.non-commercial.form.button.delete"
+                      action="/sponsor/non-commercial-banner/delete"/>
 
-    <acme:form-return code="administrator.banner.non-commercial.form.button.return"/>
+    <acme:form-return code="sponsor.banner.non-commercial.form.button.return"/>
 </acme:form>

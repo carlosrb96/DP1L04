@@ -8,22 +8,25 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.banner.commercial.form.button.create = Create
-administrator.banner.commercial.form.button.return = Return
+sponsor.banner.commercial.form.button.create = Create
+sponsor.banner.commercial.form.button.return = Return
 
-administrator.banner.commercial.banner = Commercial banner fields
-administrator.banner.commercial.picture = Picture
-administrator.banner.commercial.slogan = Slogan
-administrator.banner.commercial.targetURL = Target URL
+sponsor.banner.commercial.banner = Commercial banner fields
+sponsor.banner.commercial.picture = Picture
+sponsor.banner.commercial.slogan = Slogan
+sponsor.banner.commercial.targetURL = Target URL
 
-administrator.banner.commercial.creditCard = Credit card fields
-administrator.banner.commercial.brand = Brand
-administrator.banner.commercial.cvv = CVV
-administrator.banner.commercial.expMonth = Expiration Month
-administrator.banner.commercial.expYear = Expiration Year
+sponsor.banner.commercial.creditCard = Credit card fields
+sponsor.banner.commercial.brand = Brand
+sponsor.banner.commercial.cvv = CVV
+sponsor.banner.commercial.expMonth = Expiration Month
+sponsor.banner.commercial.expYear = Expiration Year
 
 banner.commercial.slogan = Slogan
 banner.commercial.targetURL = Target URL
 
-administrator.banner.commercial.form.button.update = Update
-administrator.banner.commercial.form.button.delete = Delete
+sponsor.banner.commercial.form.button.update = Update
+sponsor.banner.commercial.form.button.delete = Delete
+
+error.principal.non-author = You are not the author of this banner!
+error.principal.creditCardNumber = You can not create a commercial banner with an empty credit card number.
