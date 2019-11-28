@@ -1,11 +1,11 @@
 
-package acme.features.administrator.banner.commercial;
+package acme.features.sponsor.banner.commercial;
 
 import acme.entities.banners.CommercialBanner;
+import acme.entities.roles.Sponsor;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Administrator;
-import acme.framework.entities.Authenticated;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,25 +13,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.annotation.PostConstruct;
 
 @Controller
-@RequestMapping("/administrator/commercial-banner/")
-public class AdministratorCommercialBannerController extends AbstractController<Administrator, CommercialBanner> {
+@RequestMapping("/sponsor/commercial-banner/")
+public class SponsorCommercialBannerController extends AbstractController<Sponsor, CommercialBanner> {
 
 	@Autowired
-	private AdministratorCommercialBannerCreateService createService;
+	private SponsorCommercialBannerCreateService createService;
 
 	@Autowired
-	private AdministratorCommercialBannerUpdateService updateService;
+	private SponsorCommercialBannerUpdateService updateService;
 
 	@Autowired
-	private AdministratorCommercialBannerDeleteService	deleteService;
+	private SponsorCommercialBannerDeleteService deleteService;
 
 	@Autowired
-	private AdministratorCommercialBannerListService listService;
+	private SponsorCommercialBannerListService listService;
 
 	@Autowired
-	private AdministratorCommercialBannerShowService showService;
-
-	//TODO: Añadir método de show y de list para el administrador
+	private SponsorCommercialBannerShowService showService;
 
 
 	@PostConstruct

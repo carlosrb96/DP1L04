@@ -1,23 +1,21 @@
 
-package acme.features.administrator.banner.noncommercial;
+package acme.features.sponsor.banner.nonCommercial;
 
 import acme.entities.banners.NonCommercialBanner;
+import acme.entities.roles.Sponsor;
 import acme.features.authenticated.banner.noncommercial.AuthenticatedNonCommercialBannerRepository;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Administrator;
-import acme.framework.entities.Authenticated;
-import acme.framework.services.AbstractListService;
+import acme.framework.services.AbstractShowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-
 @Service
-public class AdministratorNonCommercialBannerListService implements AbstractListService<Administrator, NonCommercialBanner> {
+public class SponsorNonCommercialBannerShowService implements AbstractShowService<Sponsor, NonCommercialBanner> {
 
 	@Autowired
-	private AuthenticatedNonCommercialBannerRepository repository;
+	private SponsorNonCommercialBannerRepository repository;
 
 
 	@Override
@@ -33,14 +31,13 @@ public class AdministratorNonCommercialBannerListService implements AbstractList
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "slogan", "targetURL");
-
+		request.unbind(entity, model, "picture", "slogan", "targetURL", "jingle");
 	}
 
 	@Override
-	public Collection<NonCommercialBanner> findMany(final Request<NonCommercialBanner> request) {
+	public NonCommercialBanner findOne(final Request<NonCommercialBanner> request) {
 
-		return this.repository.findMany();
+		return this.repository.findOne(request.getModel().getInteger("id"));
 	}
 
 }

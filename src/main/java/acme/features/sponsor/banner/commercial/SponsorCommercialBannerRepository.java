@@ -1,5 +1,5 @@
 
-package acme.features.administrator.banner.commercial;
+package acme.features.sponsor.banner.commercial;
 
 import acme.entities.banners.CommercialBanner;
 import acme.framework.repositories.AbstractRepository;
@@ -9,10 +9,10 @@ import org.springframework.stereotype.Repository;
 import java.util.Collection;
 
 @Repository
-public interface AdministratorCommercialBannerRepository extends AbstractRepository {
+public interface SponsorCommercialBannerRepository extends AbstractRepository {
 
-	@Query("select cb from CommercialBanner cb")
-	Collection<CommercialBanner> findMany();
+	@Query("select cb from CommercialBanner cb where cb.sponsor.id = ?1")
+	Collection<CommercialBanner> findMany(int id);
 
 	@Query("select cb from CommercialBanner cb where cb.id = ?1")
 	CommercialBanner findOne(int id);
