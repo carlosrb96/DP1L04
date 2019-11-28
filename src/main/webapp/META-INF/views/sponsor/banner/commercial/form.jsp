@@ -25,15 +25,6 @@
 		<acme:form-textbox code="administrator.banner.commercial.slogan" path="slogan" />
 		<acme:form-textbox code="administrator.banner.commercial.targetURL" path="targetURL" />
 	</fieldset>
-	<fieldset>
-		<legend>
-			<acme:message code="administrator.banner.commercial.creditCard" />
-		</legend>
-		<acme:form-textbox code="administrator.banner.commercial.brand" path="brand" />
-		<acme:form-textbox code="administrator.banner.commercial.cvv" path="CVV" />
-		<acme:form-textbox code="administrator.banner.commercial.expMonth" path="expirationMonth" />
-		<acme:form-textbox code="administrator.banner.commercial.expYear" path="expirationYear" />
-	</fieldset>
 
 	<acme:form-submit test="${command == 'show'}"
 					  code="administrator.banner.commercial.form.button.update"
