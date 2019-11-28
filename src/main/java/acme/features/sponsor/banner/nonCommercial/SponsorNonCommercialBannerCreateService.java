@@ -47,11 +47,12 @@ public class SponsorNonCommercialBannerCreateService implements AbstractCreateSe
     @Override
     public NonCommercialBanner instantiate(final Request<NonCommercialBanner> request) {
         NonCommercialBanner ncb = new NonCommercialBanner();
-
+        Sponsor sponsor = this.repository.findSponsor(request.getPrincipal().getAccountId() + 1);
         ncb.setJingle("");
         ncb.setPicture("");
         ncb.setSlogan("");
         ncb.setTargetURL("");
+        ncb.setSponsor(sponsor);
 
         return ncb;
     }

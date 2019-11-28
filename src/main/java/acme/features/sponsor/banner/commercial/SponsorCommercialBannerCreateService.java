@@ -20,6 +20,7 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 	private SponsorCommercialBannerRepository repository;
 
 
+
 	@Override
 	public boolean authorise(final Request<CommercialBanner> request) {
 		assert request != null;
@@ -42,7 +43,11 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 		assert entity != null;
 		assert model != null;
 
+		Sponsor sponsor = this.repository.findSponsor(request.getPrincipal().getAccountId() + 1);
+		boolean invalidCreditCard = sponsor.getCreditCardNumber() != null && !sponsor.getCreditCardNumber().equals("");
+
 		request.unbind(entity, model, "picture", "targetURL", "slogan");
+		request.transfer(model, "invalidCreditCard");
 
 	}
 
@@ -53,16 +58,21 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 		cb.setPicture("");
 		cb.setSlogan("");
 		cb.setTargetURL("");
+		Sponsor sponsor = this.repository.findSponsor(request.getPrincipal().getAccountId() + 1);
+		cb.setSponsor(sponsor);
 
 		return cb;
 	}
 
-	//TODO: No permitir que el usuario sin credit card no pueda crear
 	@Override
 	public void validate(final Request<CommercialBanner> request, final CommercialBanner entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		Sponsor sponsor = this.repository.findSponsor(request.getPrincipal().getAccountId() + 1);
+		boolean invalidCreditCard = sponsor.getCreditCardNumber() != null && !sponsor.getCreditCardNumber().equals("");
+		errors.state(request, invalidCreditCard, "creditCardNumber", "error.principal.creditCardNumber");
 
 	}
 

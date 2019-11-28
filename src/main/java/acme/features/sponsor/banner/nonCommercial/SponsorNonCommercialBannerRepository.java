@@ -2,6 +2,7 @@
 package acme.features.sponsor.banner.nonCommercial;
 
 import acme.entities.banners.NonCommercialBanner;
+import acme.entities.roles.Sponsor;
 import acme.framework.repositories.AbstractRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -16,5 +17,8 @@ public interface SponsorNonCommercialBannerRepository extends AbstractRepository
 
 	@Query("select ncb from NonCommercialBanner ncb where ncb.id = ?1")
 	NonCommercialBanner findOne(int id);
+
+	@Query("select s from Sponsor s where s.id = ?1")
+	Sponsor findSponsor(int id);
 
 }

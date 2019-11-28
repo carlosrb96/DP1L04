@@ -54,6 +54,10 @@ public class SponsorCommercialBannerUpdateService implements AbstractUpdateServi
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		Sponsor sponsor = this.repository.findSponsor(request.getPrincipal().getAccountId() + 1);
+		boolean actualAndCreator = sponsor == entity.getSponsor();
+		errors.state(request, actualAndCreator, "sponsor" ,"error.principal.non-author");
 	}
 
 	@Override
