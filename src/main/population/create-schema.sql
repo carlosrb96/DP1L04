@@ -107,6 +107,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `employer` (
+       `id` integer not null,
+        `version` integer not null,
+        `user_account_id` integer,
+        `company` varchar(255),
+        `sector` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `garrido_bulletin` (
        `id` integer not null,
         `version` integer not null,
@@ -141,6 +150,22 @@
         `name` varchar(255),
         `sector` varchar(255),
         `stars` integer,
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `job` (
+       `id` integer not null,
+        `version` integer not null,
+        `deadline` datetime(6),
+        `description` varchar(255),
+        `final_mode` bit not null,
+        `more_info` varchar(255),
+        `reference` varchar(255),
+        `salary_amount` double precision,
+        `salary_currency` varchar(255),
+        `title` varchar(255),
+        `employer_id` integer not null,
+        `worker_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -229,11 +254,23 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `worker` (
+       `id` integer not null,
+        `version` integer not null,
+        `user_account_id` integer,
+        `qualification_record` varchar(255),
+        `skills_record` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `hibernate_sequence` (
        `next_val` bigint
     ) engine=InnoDB;
 
     insert into `hibernate_sequence` values ( 1 );
+
+    alter table `job` 
+       add constraint UK_7jmfdvs0b0jx7i33qxgv22h7b unique (`reference`);
 
     alter table `offer` 
        add constraint UK_iex7e8fs0fh89yxpcnm1orjkm unique (`ticker`);
@@ -264,7 +301,27 @@
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+    alter table `employer` 
+       add constraint FK_na4dfobmeuxkwf6p75abmb2tr 
+       foreign key (`user_account_id`) 
+       references `user_account` (`id`);
+
+    alter table `job` 
+       add constraint `FK3rxjf8uh6fh2u990pe8i2at0e` 
+       foreign key (`employer_id`) 
+       references `employer` (`id`);
+
+    alter table `job` 
+       add constraint `FKoy6jryc3ih02h2e54wda7v6r6` 
+       foreign key (`worker_id`) 
+       references `worker` (`id`);
+
     alter table `provider` 
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 
+       foreign key (`user_account_id`) 
+       references `user_account` (`id`);
+
+    alter table `worker` 
+       add constraint FK_l5q1f33vs2drypmbdhpdgwfv3 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
