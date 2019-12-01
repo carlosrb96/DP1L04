@@ -54,6 +54,7 @@ master.menu.authenticated.request.list = Requests's list
 master.menu.authenticated.company-record.list = Companies's list
 master.menu.banner.list.commercial = Commercial banners's list
 master.menu.banner.list.non-commercial = Non commercial banners's list
+master.menu.job.list = Jobs's list
 
 # master.menu.administrator ###################################################
 
@@ -89,6 +90,11 @@ master.menu.provider.request.create = Create Request
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 master.menu.consumer.offer.create = Create Offer
+
+# master.menu.employer ##########################################################
+
+master.menu.employer = Employer
+master.menu.employer.job.list = My jobs
 
 # master.menu.user-account ####################################################
 

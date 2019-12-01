@@ -122,6 +122,11 @@
 			<acme:menu-separator />
 		</acme:menu-option>
 		
+		<acme:menu-option code="master.menu.employer" access="hasRole('Employer')">
+			<acme:menu-suboption code="master.menu.employer.job.list" action="/employer/job/list-mine" />
+			<acme:menu-separator />
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.announcement" action="/authenticated/announcement/list" />
 			<acme:menu-separator />
@@ -138,6 +143,8 @@
 			<acme:menu-suboption code="master.menu.banner.list.commercial" action="/authenticated/commercial-banner/list" />
 			<acme:menu-separator />
 			<acme:menu-suboption code="master.menu.banner.list.non-commercial" action="/authenticated/non-commercial-banner/list" />
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.job.list" action="/authenticated/job/list"/>
 		</acme:menu-option>
 
 	</acme:menu-left>

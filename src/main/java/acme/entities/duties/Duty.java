@@ -7,7 +7,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import acme.entities.Descriptor;
+import acme.entities.descriptors.Descriptor;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,7 +30,7 @@ public class Duty extends DomainEntity {
 	private String				description;
 
 	@NotNull
-	private Double				aproxTime;
+	private Integer				aproxTime;
 
 	// Relationships ---------------------------------------------------
 

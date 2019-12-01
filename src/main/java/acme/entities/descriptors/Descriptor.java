@@ -1,5 +1,5 @@
 
-package acme.entities;
+package acme.entities.descriptors;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
@@ -32,4 +32,5 @@ public class Descriptor extends DomainEntity {
 	@Valid
 	@OneToOne(optional = false)
 	private Job job;
+
 }
