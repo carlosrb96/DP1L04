@@ -54,6 +54,7 @@ master.menu.authenticated.request.list = Requests's list
 master.menu.authenticated.company-record.list = Companies's list
 master.menu.banner.list.commercial = Commercial banners's list
 master.menu.banner.list.non-commercial = Non commercial banners's list
+master.menu.authenticated.thread.list = List Threads
 
 # master.menu.administrator ###################################################
 

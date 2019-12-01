@@ -54,6 +54,7 @@ master.menu.authenticated.request.list = Lista de peticiones
 master.menu.authenticated.company-record.list = Lista de compañias
 master.menu.banner.list.non-commercial = Lista baners no comerciales
 master.menu.banner.list.commercial = Lista baners comerciales
+master.menu.authenticated.thread.list = Lista de hilos
 
 # master.menu.administrator ###################################################
 

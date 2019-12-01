@@ -15,9 +15,25 @@
        drop 
        foreign key FK_6cyha9f1wpj0dpbxrrjddrqed;
 
+    alter table `message` 
+       drop 
+       foreign key `FK28hjkn063wrsjuiyyf8sm3s2v`;
+
     alter table `provider` 
        drop 
        foreign key FK_b1gwnjqm6ggy9yuiqm0o4rlmd;
+
+    alter table `thread` 
+       drop 
+       foreign key `FKkoj53cnb5t2fhfm33gb9bvff1`;
+
+    alter table `thread_authenticated` 
+       drop 
+       foreign key `FKd1sl9facbjenvu50u5w4ae03w`;
+
+    alter table `thread_authenticated` 
+       drop 
+       foreign key `FKjsja3s5mr66x5nxm9dd8kut3r`;
 
     drop table if exists `administrator`;
 
@@ -51,6 +67,8 @@
 
     drop table if exists `lobato_bulletin`;
 
+    drop table if exists `message`;
+
     drop table if exists `non_commercial_banner`;
 
     drop table if exists `offer`;
@@ -62,6 +80,10 @@
     drop table if exists `request_`;
 
     drop table if exists `shout`;
+
+    drop table if exists `thread`;
+
+    drop table if exists `thread_authenticated`;
 
     drop table if exists `user_account`;
 
