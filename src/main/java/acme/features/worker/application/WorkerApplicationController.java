@@ -31,7 +31,6 @@ public class WorkerApplicationController extends AbstractController<Worker, Appl
 	@PostConstruct
 	private void initialise() {
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
-
 		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineService);
 	}
 

@@ -99,6 +99,7 @@ master.menu.employer.job.list = My jobs
 
 master.menu.worker = Worker
 master.menu.worker.job.list = My jobs
+master.menu.worker.application.list = Application's list
 
 # master.menu.user-account ####################################################
 
