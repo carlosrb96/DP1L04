@@ -605,7 +605,7 @@
 	<!-- Jobs -->
 	
 	<bean name="job1" class="acme.entities.jobs.Job">
-		<property name="reference" value="EMP1-JOB1" />
+		<property name="reference" value="EMPP-JOBB" />
 		<property name="title" value="Title 1"/>
 		<property name="deadline" value ="2030/12/11 23:59" />
 		<property name="salary" value="€ 15,000.98"/>
@@ -617,7 +617,7 @@
 	</bean>
 	
 	<bean name="job2" class="acme.entities.jobs.Job">
-		<property name="reference" value="EMP1-JOB2" />
+		<property name="reference" value="EMPR-JOBR" />
 		<property name="title" value="Title 2"/>
 		<property name="deadline" value ="2030/12/11 23:59" />
 		<property name="salary" value="€ 20,000.00"/>
@@ -629,7 +629,7 @@
 	</bean>
 	
 	<bean name="job3" class="acme.entities.jobs.Job">
-		<property name="reference" value="EMP1-JOB3" />
+		<property name="reference" value="EMPT-JOBT" />
 		<property name="title" value="Title 3"/>
 		<property name="deadline" value ="2030/12/11 23:59" />
 		<property name="salary" value="€ 25,000.00"/>
@@ -641,7 +641,7 @@
 	</bean>
 	
 	<bean name="job4" class="acme.entities.jobs.Job">
-		<property name="reference" value="EMP1-JOB4" />
+		<property name="reference" value="EMPY-JOBY" />
 		<property name="title" value="Title 4"/>
 		<property name="deadline" value ="2030/12/11 23:59" />
 		<property name="salary" value="€ 30,000.00"/>
@@ -653,7 +653,7 @@
 	</bean>
 	
 	<bean name="job5" class="acme.entities.jobs.Job">
-		<property name="reference" value="EMP1-JOB5" />
+		<property name="reference" value="EMPU-JOBU" />
 		<property name="title" value="Title 5"/>
 		<property name="deadline" value ="2030/12/11 23:59" />
 		<property name="salary" value="€ 20,000.00"/>
@@ -663,6 +663,39 @@
 		<property name="employer" ref="employer2Employer"/>
 	</bean>
 	
+	<!-- Applications -->
 	
+	<bean name="application1" class="acme.entities.applications.Application">
+		<property name="reference" value="EMPP-JOBB:WORR" />
+		<property name="creationMoment" value="2018/12/11 23:59"/>
+		<property name="status" value="pending"/>
+		<property name="statement" value="Lorem ipsum sit dolor amet."/>
+		<property name="skills" value="Lorem"/>
+		<property name="qualifications" value="Lorem"/>
+		<property name="job" ref="job1"/>
+		<property name="worker" ref="worker1Worker"/>
+	</bean>
+	
+	<bean name="application2" class="acme.entities.applications.Application">
+		<property name="reference" value="EMPR-JOBR:WORR" />
+		<property name="creationMoment" value="2018/03/11 23:59"/>
+		<property name="status" value="pending"/>
+		<property name="statement" value="Lorem ipsum sit dolor amet."/>
+		<property name="skills" value="Lorem"/>
+		<property name="qualifications" value="Lorem"/>
+		<property name="job" ref="job2"/>
+		<property name="worker" ref="worker1Worker"/>
+	</bean>
+	
+	<bean name="application3" class="acme.entities.applications.Application">
+		<property name="reference" value="EMPT-JOBT:WORT" />
+		<property name="creationMoment" value="2018/02/11 23:59"/>
+		<property name="status" value="pending"/>
+		<property name="statement" value="Lorem ipsum sit dolor amet."/>
+		<property name="skills" value="Lorem"/>
+		<property name="qualifications" value="Lorem"/>
+		<property name="job" ref="job3"/>
+		<property name="worker" ref="worker1Worker"/>
+	</bean>
 	
 </beans>
