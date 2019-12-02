@@ -26,7 +26,7 @@
 		<acme:form-textbox code="sponsor.banner.commercial.slogan" path="slogan" />
 		<acme:form-textbox code="sponsor.banner.commercial.targetURL" path="targetURL" />
 	</fieldset>
-
+<div style="visibility: hidden">
 	<acme:form-submit test="${command == 'show'}"
 					  code="sponsor.banner.commercial.form.button.update"
 					  action="/sponsor/commercial-banner/update"/>
@@ -46,7 +46,7 @@
 	<acme:form-submit test="${command == 'delete'}"
 					  code="sponsor.banner.commercial.form.button.delete"
 					  action="/sponsor/commercial-banner/delete"/>
-
+</div>
 	<acme:form-return code="sponsor.banner.commercial.form.button.return" />
 
 </acme:form>
