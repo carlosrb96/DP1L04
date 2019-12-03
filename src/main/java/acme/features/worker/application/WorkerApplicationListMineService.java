@@ -37,7 +37,7 @@ public class WorkerApplicationListMineService implements AbstractListService<Wor
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "creationMoment", "status", "job");
+		request.unbind(entity, model, "creationMoment", "status", "job.reference");
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class WorkerApplicationListMineService implements AbstractListService<Wor
 		Principal principal;
 
 		principal = request.getPrincipal();
-		result = this.repository.findApplicationsById(principal.getAccountId());
+		result = this.repository.findApplicationsByWorkerId(principal.getAccountId());
 
 		return result;
 	}

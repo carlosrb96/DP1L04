@@ -18,7 +18,6 @@ worker.application.form.label.status = Estado
 worker.application.form.label.statement = Declaración
 worker.application.form.label.skills = Habilidades
 worker.application.form.label.qualifications = Cualificaciones
-worker.application.form.label.job = Trabajo
-
+worker.application.form.label.job.reference = Trabajo
 
 worker.application.form.button.return = Volver

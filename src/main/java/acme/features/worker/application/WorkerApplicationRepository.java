@@ -13,10 +13,10 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface WorkerApplicationRepository extends AbstractRepository {
 
-	@Query("select a from Application a join a.worker w where w.id = ?1")
-	Collection<Application> findApplicationsById(int id);
+	@Query("select a from Application a join a.worker w where w.userAccount.id = ?1")
+	Collection<Application> findApplicationsByWorkerId(int id);
 
-	@Query("select w from Worker w where w.id = ?1")
+	@Query("select w from Worker w where w.userAccount.id = ?1")
 	Worker findWorker(int id);
 
 	@Query("select a from Application a where a.id = ?1")
