@@ -7,6 +7,18 @@
        drop 
        foreign key FK_6lnbc6fo3om54vugoh8icg78m;
 
+    alter table `audit_record` 
+       drop 
+       foreign key `FKdcrrgv6rkfw2ruvdja56un4ji`;
+
+    alter table `audit_record` 
+       drop 
+       foreign key `FKlbvbyimxf6pxvbhkdd4vfhlnd`;
+
+    alter table `auditor` 
+       drop 
+       foreign key FK_clqcq9lyspxdxcp6o4f3vkelj;
+
     alter table `authenticated` 
        drop 
        foreign key FK_h52w0f3wjoi68b63wv9vwon57;
@@ -51,9 +63,9 @@
        drop 
        foreign key FK_b1gwnjqm6ggy9yuiqm0o4rlmd;
 
-    alter table `worker` 
+    alter table `sponsor` 
        drop 
-       foreign key FK_l5q1f33vs2drypmbdhpdgwfv3;
+       foreign key FK_20xk0ev32hlg96kqynl6laie2;
 
     alter table `thread` 
        drop 
@@ -67,15 +79,19 @@
        drop 
        foreign key `FKjsja3s5mr66x5nxm9dd8kut3r`;
 
-    alter table `sponsor` 
+    alter table `worker` 
        drop 
-       foreign key FK_20xk0ev32hlg96kqynl6laie2;
+       foreign key FK_l5q1f33vs2drypmbdhpdgwfv3;
 
     drop table if exists `administrator`;
 
     drop table if exists `announcement`;
 
     drop table if exists `anonymous`;
+
+    drop table if exists `audit_record`;
+
+    drop table if exists `auditor`;
 
     drop table if exists `authenticated`;
 
@@ -125,11 +141,11 @@
 
     drop table if exists `shout`;
 
+    drop table if exists `sponsor`;
+
     drop table if exists `thread`;
 
     drop table if exists `thread_authenticated`;
-
-    drop table if exists `sponsor`;
 
     drop table if exists `user_account`;
 
