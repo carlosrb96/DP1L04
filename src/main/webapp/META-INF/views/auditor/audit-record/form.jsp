@@ -4,7 +4,7 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="auditor.audit-records.form.title" path="tittle" />
+	<acme:form-textbox code="auditor.audit-records.form.title" path="title" />
 	<acme:form-textbox code="auditor.audit-records.form.status" path="status" />
 	<acme:form-moment code="auditor.audit-records.form.moment" path="creationMoment"/>
 	<acme:form-textarea code="auditor.audit-records.form.body" path="body"/>

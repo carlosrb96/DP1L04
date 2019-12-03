@@ -102,6 +102,11 @@ master.menu.employer.job.list = Mis trabajos
 master.menu.worker = Trabajador
 master.menu.worker.job.list = Mis trabajos
 
+# master.menu.auditor ########################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.auditRecord.list = Mis registros de auditoría
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta

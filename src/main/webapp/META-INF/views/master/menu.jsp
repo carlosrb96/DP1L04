@@ -127,6 +127,11 @@
 			<acme:menu-separator />
 		</acme:menu-option>
 		
+		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
+			<acme:menu-suboption code="master.menu.auditor.auditRecord.list" action="/auditor/audit-record/list-mine" />
+			<acme:menu-separator />
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.announcement" action="/authenticated/announcement/list" />
 			<acme:menu-separator />

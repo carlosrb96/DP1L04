@@ -3,6 +3,7 @@ package acme.features.auditor.auditRecords;
 
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.records.AuditRecord;
@@ -13,8 +14,9 @@ import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AuditorAuditRecordListService implements AbstractListService<Auditor, AuditRecord> {
+public class AuditorAuditRecordListMineService implements AbstractListService<Auditor, AuditRecord> {
 
+	@Autowired
 	private AuditorAuditRecordRepository repository;
 
 
@@ -30,7 +32,7 @@ public class AuditorAuditRecordListService implements AbstractListService<Audito
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "status", "moment");
+		request.unbind(entity, model, "title", "status", "creationMoment");
 	}
 
 	@Override
@@ -41,7 +43,8 @@ public class AuditorAuditRecordListService implements AbstractListService<Audito
 		Principal principal;
 
 		principal = request.getPrincipal();
-		res = this.repository.findManyByAuditorId(principal.getAccountId());
+		int id = principal.getAccountId();
+		res = this.repository.findManyByAuditorId(id);
 
 		return res;
 	}

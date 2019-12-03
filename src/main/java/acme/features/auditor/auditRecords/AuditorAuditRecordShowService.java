@@ -1,6 +1,7 @@
 
 package acme.features.auditor.auditRecords;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.records.AuditRecord;
@@ -13,6 +14,7 @@ import acme.framework.services.AbstractShowService;
 @Service
 public class AuditorAuditRecordShowService implements AbstractShowService<Auditor, AuditRecord> {
 
+	@Autowired
 	private AuditorAuditRecordRepository repository;
 
 
@@ -30,9 +32,9 @@ public class AuditorAuditRecordShowService implements AbstractShowService<Audito
 		auditRecord = this.repository.findOneAuditRecordById(auditRecodId);
 		auditor = auditRecord.getAuditor();
 		principal = request.getPrincipal();
-		result = auditor.getId() == principal.getAccountId();
+		result = auditor.getUserAccount().getId() == principal.getAccountId();
 
-		return true;
+		return result;
 	}
 
 	@Override
@@ -41,7 +43,7 @@ public class AuditorAuditRecordShowService implements AbstractShowService<Audito
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "status", "moment", "body");
+		request.unbind(entity, model, "title", "status", "creationMoment", "body");
 
 	}
 
@@ -54,7 +56,7 @@ public class AuditorAuditRecordShowService implements AbstractShowService<Audito
 
 		id = request.getModel().getInteger("id");
 		res = this.repository.findOneAuditRecordById(id);
-		return null;
+		return res;
 	}
 
 }

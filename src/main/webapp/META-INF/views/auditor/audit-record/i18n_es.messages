@@ -10,11 +10,11 @@
 
 auditor.audit-records.list.title = Titulo
 auditor.audit-records.list.status = Estado
-auditor.audit-records.list.moment = Momento de creacion
+auditor.audit-records.list.moment = Fecha de creación
 
 auditor.audit-records.form.title = Titulo: 
 auditor.audit-records.form.status = Estado: 
-auditor.audit-records.form.moment = Momenyo de Creacion: 
+auditor.audit-records.form.moment = Fecha de creación 
 auditor.audit-records.form.body = Cuerpo: 
 
 auditor.audit-records.form.return = Volver
