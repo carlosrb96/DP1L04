@@ -9,12 +9,13 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<import resource="conversion-service.xml" />
-	
-		<!-- CUSTOMIZATION -->
-	
+
+	<!-- CUSTOMIZATION -->
+
 	<bean id="customization" class="acme.entities.customization.Customization">
-	<property name = "spamWords" value="sex,hardcore,viagra,cialis,nigeria,you've won,you have won,million dollar,sexo,explícito,ha ganado,has ganado,millón de dólares" />
-	<property name="threshold" value="1.00"/>
+		<property name="spamWords"
+			value="sex,hardcore,viagra,cialis,nigeria,you've won,you have won,million dollar,sexo,explícito,ha ganado,has ganado,millón de dólares" />
+		<property name="threshold" value="1.00" />
 	</bean>
 
 	<!-- BRIONES BULLETINS -->
@@ -164,7 +165,7 @@
 		<property name="quote" value="Cirilla!" />
 		<property name="moment" value="2010/12/08 11:00" />
 	</bean>
-	
+
 	<!-- GarridooBulletins -->
 
 	<bean id="garridoBulletin1" class="acme.entities.bulletins.GarridoBulletin">
@@ -271,14 +272,14 @@
 		<property name="investingStatement" value="Voy a invertir en acciones de Mercadona" />
 		<property name="stars" value="0" />
 	</bean>
-	
+
 	<bean id="investorRecord4" class="acme.entities.investorRecords.InvestorRecord">
 		<property name="name" value="Michael" />
 		<property name="sector" value="Tecnología" />
 		<property name="investingStatement" value="Voy a invertir en acciones de Microsoft" />
 		<property name="stars" value="5" />
 	</bean>
-	
+
 	<bean id="investorRecord5" class="acme.entities.investorRecords.InvestorRecord">
 		<property name="name" value="Verstappen" />
 		<property name="sector" value="Tecnología" />
@@ -485,9 +486,9 @@
 		<property name="website" value="http://www.propaphone.com" />
 		<property name="phone" value="7724887785" />
 		<property name="email" value="propa@phone.com" />
-		<property name="stars" value="0"/>
+		<property name="stars" value="0" />
 	</bean>
-	
+
 	<bean id="CompanyRecord04" class="acme.entities.records.CompanyRecord">
 		<property name="companyName" value="TecnoHouse, PLL" />
 		<property name="sector" value="Tecnology" />
@@ -496,9 +497,9 @@
 		<property name="website" value="http://www.tecnohouse.com" />
 		<property name="phone" value="875488757" />
 		<property name="email" value="houseoftecno@gmail.com" />
-		<property name="stars" value = "3"/>
+		<property name="stars" value="3" />
 	</bean>
-	
+
 	<bean id="CompanyRecord05" class="acme.entities.records.CompanyRecord">
 		<property name="companyName" value="Hospitalet, inc." />
 		<property name="sector" value="Health" />
@@ -507,7 +508,7 @@
 		<property name="website" value="http://www.hospitalet.com" />
 		<property name="phone" value="772588757" />
 		<property name="email" value="enterprise@hospita.let.com" />
-		<property name="stars" value="4"/>
+		<property name="stars" value="4" />
 	</bean>
 	
 	<!-- Employers -->
@@ -763,4 +764,131 @@
 	
 
 	
+
+	<!-- Authenticated user -->
+
+	<bean name="authenticatedUserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="authenticated" />
+		<property name="password" value="authenticated" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Authenticated" />
+				<property name="surname" value="Acme.com" />
+				<property name="email" value="authenticated@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="authenticatedAuthenticated" />
+			</list>
+		</property>
+	</bean>
+
+
+	<bean name="acmeUserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="acmeTest" />
+		<property name="password" value="acmeTest" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Acme" />
+				<property name="surname" value="Acme.com" />
+				<property name="email" value="authenticated@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="acmeAuthenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="authenticatedAuthenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="authenticatedUserAccount" />
+	</bean>
+
+	<bean name="acmeAuthenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="acmeUserAccount" />
+	</bean>
+
+
+	<!-- Threads -->
+	<bean id="Thread01" class="acme.entities.threads.Thread">
+		<property name="title" value="Mensajes importantes" />
+		<property name="moment" value="2019/07/09 18:55" />
+		<property name="participants">
+			<list>
+				<ref bean="authenticatedAuthenticated" />
+			</list>
+		</property>
+		<property name="authenticated" ref="authenticatedAuthenticated" />
+	</bean>
+
+	<bean id="Thread02" class="acme.entities.threads.Thread">
+		<property name="title" value="Reunión" />
+		<property name="moment" value="2013/07/09 18:55" />
+		<property name="participants">
+			<list>
+				<ref bean="acmeAuthenticated" />
+				<ref bean="authenticatedAuthenticated" />
+			</list>
+		</property>
+		<property name="authenticated" ref="authenticatedAuthenticated" />
+	</bean>
+
+	<bean id="Thread03" class="acme.entities.threads.Thread">
+		<property name="title" value="Cierre de la empresa" />
+		<property name="moment" value="2019/07/09 20:55" />
+		<property name="participants">
+			<list>
+				<ref bean="acmeAuthenticated" />
+				<ref bean="authenticatedAuthenticated" />
+			</list>
+		</property>
+		<property name="authenticated" ref="acmeAuthenticated" />
+	</bean>
+
+
+	<!-- Messages -->
+	<bean id="Message01" class="acme.entities.messages.Message">
+		<property name="title" value="informe" />
+		<property name="moment" value="2017/07/09 20:55" />
+		<property name="tags" value="importante,urgente" />
+		<property name="body" value="Informe aprobado" />
+		<property name="thread" ref="Thread01" />
+	</bean>
+
+	<bean id="Message02" class="acme.entities.messages.Message">
+		<property name="title" value="Hora de reunión" />
+		<property name="moment" value="2017/07/09 20:55" />
+		<property name="tags" value="Urgente, Horario" />
+		<property name="body" value="9 de la mañana" />
+		<property name="thread" ref="Thread02" />
+	</bean>
+
+	<bean id="Message03" class="acme.entities.messages.Message">
+		<property name="title" value="Confirmación" />
+		<property name="moment" value="2017/07/09 20:55" />
+		<property name="tags" value="Urgente, Horario, Confirmación" />
+		<property name="body" value="Perfecto" />
+		<property name="thread" ref="Thread02" />
+	</bean>
+
+	<bean id="Message04" class="acme.entities.messages.Message">
+		<property name="title" value="Malas noticias" />
+		<property name="moment" value="2017/07/09 20:55" />
+		<property name="tags" value="Urgente, SAD" />
+		<property name="body" value="Nos vemos forzados a cerrar." />
+		<property name="thread" ref="Thread03" />
+	</bean>
+
+	<bean id="Message05" class="acme.entities.messages.Message">
+		<property name="title" value="Despedida" />
+		<property name="moment" value="2017/07/09 20:50" />
+		<property name="tags" value="Urgente, SAD" />
+		<property name="body" value="Hasta luego." />
+		<property name="thread" ref="Thread03" />
+	</bean>
+
 </beans>

@@ -195,6 +195,17 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `message` (
+       `id` integer not null,
+        `version` integer not null,
+        `body` varchar(1024),
+        `moment` datetime(6),
+        `tags` varchar(255),
+        `title` varchar(255),
+        `thread_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `non_commercial_banner` (
        `id` integer not null,
         `version` integer not null,
@@ -257,6 +268,20 @@
         `moment` datetime(6),
         `text` varchar(255),
         primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `thread` (
+       `id` integer not null,
+        `version` integer not null,
+        `moment` datetime(6),
+        `title` varchar(255),
+        `authenticated_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `thread_authenticated` (
+       `thread_id` integer not null,
+        `participants_id` integer not null
     ) engine=InnoDB;
 
     create table `user_account` (
@@ -341,6 +366,11 @@
        foreign key (`employer_id`) 
        references `employer` (`id`);
 
+    alter table `message` 
+       add constraint `FK28hjkn063wrsjuiyyf8sm3s2v` 
+       foreign key (`thread_id`) 
+       references `thread` (`id`);
+
     alter table `provider` 
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 
        foreign key (`user_account_id`) 
@@ -350,3 +380,18 @@
        add constraint FK_l5q1f33vs2drypmbdhpdgwfv3 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `thread` 
+       add constraint `FKkoj53cnb5t2fhfm33gb9bvff1` 
+       foreign key (`authenticated_id`) 
+       references `authenticated` (`id`);
+
+    alter table `thread_authenticated` 
+       add constraint `FKd1sl9facbjenvu50u5w4ae03w` 
+       foreign key (`participants_id`) 
+       references `authenticated` (`id`);
+
+    alter table `thread_authenticated` 
+       add constraint `FKjsja3s5mr66x5nxm9dd8kut3r` 
+       foreign key (`thread_id`) 
+       references `thread` (`id`);

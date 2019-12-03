@@ -145,6 +145,9 @@
 			<acme:menu-suboption code="master.menu.banner.list.non-commercial" action="/authenticated/non-commercial-banner/list" />
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.job.list" action="/authenticated/job/list"/>
+			<acme:menu-separator />
+			<acme:menu-suboption code="master.menu.authenticated.thread.list" action="/authenticated/thread/list_mine" />
+					
 		</acme:menu-option>
 
 	</acme:menu-left>
