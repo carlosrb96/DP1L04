@@ -38,6 +38,7 @@ public class Job extends DomainEntity {
 	@Column(unique = true)
 	@NotBlank
 	@Length(min = 5, max = 10)
+	@Pattern(regexp = "^[A-Z]{4}\\-[A-Z]{4}$")
 	private String				reference;
 
 	@NotBlank
