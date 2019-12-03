@@ -946,4 +946,112 @@
 		<property name="thread" ref="Thread03" />
 	</bean>
 
+	<!-- Auditors -->
+	
+	<bean id="auditor1UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="password" value="auditor1"/>
+		<property name="username" value="auditor1"/>	
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="auditor" />
+				<property name="surname" value="One" />
+				<property name="email" value="auditor1@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="auditor1Auditor"/>
+				<ref bean="auditor1Authenticated"/>
+			</list>
+		</property>	
+	</bean>
+	
+	<bean id="auditor1Auditor" class="acme.entities.roles.Auditor">
+		<property name="company" value="Auditor 1, Inc."/>
+		<property name="sector" value="Sector 1"/>
+		<property name="userAccount" ref="Auditor1UserAccount"/>
+	</bean>
+	
+	<bean id="Auditor1Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="Auditor1UserAccount"/>
+	</bean>
+	
+	<bean id="auditor2UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="auditor2"/>	
+		<property name="password" value="auditor2"/>
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="auditor" />
+				<property name="surname" value="Two" />
+				<property name="email" value="auditor2@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="auditor2Auditor"/>
+				<ref bean="auditor2Authenticated"/>
+			</list>
+		</property>	
+	</bean>
+	
+	<bean id="auditor2Auditor" class="acme.entities.roles.Auditor">
+		<property name="company" value="Auditor 2, Inc."/>
+		<property name="sector" value="Sector 2"/>
+		<property name="userAccount" ref="Auditor2UserAccount"/>
+	</bean>
+	
+	<bean id="Auditor2Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="Auditor2UserAccount"/>
+	</bean>
+	
+	<!-- AuditRecords -->
+
+	<bean id="AuditRecord01" class="acme.entities.records.AuditRecords">
+		<property name="title" value="AuditRecord01" />
+		<property name="status" value="published" />
+		<property name="creationMoment" value="22/07/2019 17:06" />
+		<property name="body" value="All good enougth" />
+		<property name="auditor" value="auditor1Auditor"/>
+		<property name="Job" value="Job1"/>
+	</bean>
+	
+	<bean id="AuditRecord02" class="acme.entities.records.AuditRecords">
+		<property name="title" value="AuditRecord02" />
+		<property name="status" value="published" />
+		<property name="creationMoment" value="01/01/2019 10:45" />
+		<property name="body" value="These things bore me" />
+		<property name="auditor" value="auditor1Auditor"/>
+		<property name="Job" value="Job2"/>
+	</bean>
+	
+	<bean id="AuditRecord03" class="acme.entities.records.AuditRecords">
+		<property name="title" value="AuditRecord03" />
+		<property name="status" value="draft" />
+		<property name="creationMoment" value="25/12/2018 12:00" />
+		<property name="body" value="This is really bad." />
+		<property name="auditor" value="auditor1Auditor"/>
+		<property name="Job" value="Job3"/>
+	</bean>
+	
+	<bean id="AuditRecord04" class="acme.entities.records.AuditRecords">
+		<property name="title" value="AuditRecord04" />
+		<property name="status" value="draft" />
+		<property name="creationMoment" value="25/10/2018 11:20" />
+		<property name="body" value="This is really bad." />
+		<property name="auditor" value="auditor2Auditor"/>
+		<property name="Job" value="Job4"/>
+	</bean>
+	
+	<bean id="AuditRecord05" class="acme.entities.records.AuditRecords">
+		<property name="title" value="AuditRecord05" />
+		<property name="status" value="published" />
+		<property name="creationMoment" value="05/10/2018 12:24" />
+		<property name="body" value="This is really bad." />
+		<property name="auditor" value="auditor2Auditor"/>
+		<property name="Job" value="Job5"/>
+	</bean>
+	
+	
 </beans>
