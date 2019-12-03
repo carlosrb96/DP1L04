@@ -35,4 +35,12 @@ public class Dashboard implements Serializable {
 	GroupedBy					investorGroupedBySector;
 	String[]					labels;
 
+
+	Double averageNumberOfJobsPerEmployer;
+	Double averageNumberOfApplicationsPerWorker;
+	Double averageNumberOfApplicationsPerEmployer;
+	Double ratioOfPendingApplications;
+	Double ratioOfRejectedApplications;
+	Double ratioOfPublishedJobs;
+	Double ratioOfDraftJobs;
 }

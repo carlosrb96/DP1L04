@@ -57,4 +57,29 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 
 	@Query("select cr.sector, count(cr) from CompanyRecord cr group by cr.sector")
 	List<Object[]> companyRecordGroupedBySector();
+
+
+	@Query("select avg(select count(j) from Job j where j.employer.id = e.id) from Employer e")
+	Double averageNumberOfJobsPerEmployer();
+
+	@Query("select avg(select count(a) from Application a where a.worker.id = w.id) from Worker w")
+	Double averageNumberOfApplicationsPerWorker();
+
+	@Query("select avg(select count(a) from Application a where exists(select j from Job j where j.employer.id = e.id and a.job.id = j.id)) from Employer e")
+	Double averageNumberOfApplicationsPerEmployer();
+
+	@Query("select 1.0 * count(a) / (select count(b) from Application b) from Application a where a.status = 'pending'")
+	Double ratioOfPendingApplications();
+
+	@Query("select 1.0 * count(a) / (select count(b) from Application b) from Application a where a.status = 'accepted'")
+	Double ratioOfAcceptedApplications();
+
+	@Query("select 1.0 * count(a) / (select count(b) from Application b) from Application a where a.status = 'rejected'")
+	Double ratioOfRejectedApplications();
+
+	@Query("select 1.0 * count(a) / (select count(b) from Job b) from Job a where a.status = 'published'")
+	Double ratioOfPublishedJobs();
+
+	@Query("select 1.0 * count(a) / (select count(b) from Job b) from Job a where a.status = 'draft'")
+	Double ratioOfDraftJobs();
 }
