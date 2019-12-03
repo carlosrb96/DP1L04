@@ -33,7 +33,7 @@ public interface AuditorJobRepository extends AbstractRepository {
 	@Query("select ar.job from AuditRecord ar where ar.auditor.id != ?1")
 	Collection<Job> findManyOtherByAuditorId(int auditorId);
 
-	@Query("select ar.auditor from AuditRecord ar where ar.job = ?1")
+	@Query("select ar.auditor from AuditRecord ar where ar.job.id = ?1")
 	Auditor findAuditorByJob(int jobId);
 
 }
