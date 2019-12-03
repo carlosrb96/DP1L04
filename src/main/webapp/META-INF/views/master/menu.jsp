@@ -119,9 +119,9 @@
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sponsor" access="hasRole('Sponsor')">
-			<acme:menu-suboption code="master.menu.sponsor.banner.commercial.create" action="/sponsor/commercial-banner/list"/>
+			<acme:menu-suboption code="master.menu.sponsor.banner.commercial.list" action="/sponsor/commercial-banner/list"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.sponsor.banner.non-commercial.create" action="/sponsor/non-commercial-banner/list"/>
+			<acme:menu-suboption code="master.menu.sponsor.banner.non-commercial.list" action="/sponsor/non-commercial-banner/list"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.employer" access="hasRole('Employer')">

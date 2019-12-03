@@ -12,10 +12,15 @@
 <jstl:set value="${investorGroupedBySector.text}" var="textIR" />
 <jstl:set value="${investorGroupedBySector.amount}" var="amountIR" />
 
+<jstl:set value="[${ratioOfPendingApplications}, ${ratioOfRejectedApplications}, ${ratioOfPublishedJobs}, ${ratioOfDraftJobs}]" var="list" />
+
 <div>
-	<canvas id="canvas">
-    </canvas>
+	<canvas id="canvas"></canvas>
 </div>
+<div>
+	<canvas id="canvas1"></canvas>
+</div>
+
 <fieldset>
 	<spring:message code="numberOfAnnouncements" />
 	: ${numberOfAnnouncements}
@@ -56,6 +61,19 @@
 	<br>
 	<spring:message code="stddevRewardsOffersTo" />
 	: ${stddevRewardsOffersTo}
+	<br>
+</fieldset>
+<br>
+<fieldset>
+	<spring:message code="averageNumberOfJobsPerEmployer"/>
+	: ${averageNumberOfJobsPerEmployer}
+	<br>
+	<spring:message code="averageNumberOfApplicationsPerWorker"/>
+	: ${averageNumberOfApplicationsPerWorker}
+	<br>
+	<spring:message code="averageNumberOfApplicationsPerEmployer"/>
+	: ${averageNumberOfApplicationsPerEmployer}
+	<br>
 </fieldset>
 
 <script type="text/javascript">
@@ -91,6 +109,15 @@
 				]
 	};
 
+	var data1 = {
+		labels : ["Ratio of pending applications", "Ratio of rejected applications", "Ratio of published jobs", "Ratio of jobs in draft mode"],
+		datasets : [{
+			label: "",
+			data: ${list},
+			backgroundColor: ["#3cba9f","#e8c3b9", "#3e95cd", "#8e5ea2"]
+		}]
+	};
+
 	var options =
 			{
 				legend: {display: false},
@@ -113,6 +140,32 @@
 				data: data,
 				options: options
 			}
-	)
+	);
+
+	var options1 =
+			{
+				legend: {display: false},
+				scales:
+						{
+							yAxes: [{
+								ticks: {
+									suggestedMin: 0.0
+								}
+							}]
+						}
+			};
+
+	var canvas1 = document.getElementById("canvas1");
+	var context1 = canvas1.getContext("2d");
+
+	new Chart(
+			context1,
+			{
+				type: 'bar',
+				data: data1,
+				options: options
+			}
+	);
+
 	</jstl:if>
 </script>

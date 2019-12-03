@@ -22,3 +22,7 @@ maximumRewardsOffers = Maximum rewards offers
 avgRewardsOffers = Average rewards offers
 stddevRewardsOffersFrom = Stddev rewards offers from
 stddevRewardsOffersTo = Stddev rewards offers to
+
+averageNumberOfJobsPerEmployer = Average number of jobs per employer
+averageNumberOfApplicationsPerWorker = Average number of applications per worker
+averageNumberOfApplicationsPerEmployer = Average number of applications per employer

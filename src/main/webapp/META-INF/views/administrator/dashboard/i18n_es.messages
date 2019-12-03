@@ -22,3 +22,7 @@ maximumRewardsOffers = Maxima recompensa de ofertas
 avgRewardsOffers = Media de recompensas de ofertas
 stddevRewardsOffersFrom = Desviacion tipica de ofertas minimas
 stddevRewardsOffersTo = Desviacion tipica de ofertas maxima
+
+averageNumberOfJobsPerEmployer = Media del numero de jobs por cada empleador
+averageNumberOfApplicationsPerWorker = Media del numero de aplicaciones por cada trabajador
+averageNumberOfApplicationsPerEmployer = Media del numero de aplicaciones por empleador

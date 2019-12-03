@@ -35,7 +35,9 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		assert model != null;
 
 		request.unbind(entity, model, "numberOfAnnouncements", "numberOfCompanyRecords", "numberOfInvestorRecords", "minimumRewardsRequest", "maximumRewardsRequest", "avgRewardsRequest", "stddevRewardsRequest", "minimumRewardsOffers",
-			"maximumRewardsOffers", "avgRewardsOffers", "stddevRewardsOffersFrom", "stddevRewardsOffersTo", "companiesSector", "investorGroupedBySector", "labels");
+			"maximumRewardsOffers", "avgRewardsOffers", "stddevRewardsOffersFrom", "stddevRewardsOffersTo", "companiesSector", "investorGroupedBySector", "labels",
+				"averageNumberOfJobsPerEmployer", "averageNumberOfApplicationsPerWorker", "averageNumberOfApplicationsPerEmployer", "ratioOfPendingApplications",
+				"ratioOfRejectedApplications", "ratioOfPublishedJobs", "ratioOfDraftJobs");
 
 	}
 
@@ -64,7 +66,6 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		if (result != null && !result.isEmpty()) {
 			for (Object[] o : result) {
-				//GroupedBy g = new GroupedBy(o[0].toString(), Integer.parseInt(o[1].toString()));
 				text.add(o[0].toString());
 				amount.add(o[1].toString());
 			}
@@ -95,6 +96,15 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		}
 
 		dashboard.setLabels(labels);
+
+		dashboard.setAverageNumberOfJobsPerEmployer(this.repository.averageNumberOfJobsPerEmployer() == null ? 0. :this.repository.averageNumberOfJobsPerEmployer());
+		dashboard.setAverageNumberOfApplicationsPerWorker(this.repository.averageNumberOfApplicationsPerEmployer() == null ? 0. :this.repository.averageNumberOfApplicationsPerEmployer());
+		dashboard.setAverageNumberOfApplicationsPerEmployer(this.repository.averageNumberOfApplicationsPerEmployer() == null ? 0. : this.repository.averageNumberOfApplicationsPerEmployer());
+
+		dashboard.setRatioOfPendingApplications(this.repository.ratioOfPendingApplications() == null ? 0. : this.repository.ratioOfPendingApplications());
+		dashboard.setRatioOfRejectedApplications(this.repository.ratioOfRejectedApplications() == null ? 0. : this.repository.ratioOfRejectedApplications());
+		dashboard.setRatioOfPublishedJobs(this.repository.ratioOfPublishedJobs() == null ? 0. : this.repository.ratioOfPublishedJobs());
+		dashboard.setRatioOfDraftJobs(this.repository.ratioOfDraftJobs() == null ? 0. : this.repository.ratioOfDraftJobs());
 
 		return dashboard;
 	}
