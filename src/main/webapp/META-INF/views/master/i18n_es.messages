@@ -97,6 +97,7 @@ master.menu.employer.job.list = Mis trabajos
 
 master.menu.worker = Trabajador
 master.menu.worker.job.list = Mis trabajos
+master.menu.worker.application.list = Aplicaciones
 
 # master.menu.auditor ########################################################
 

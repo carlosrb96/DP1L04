@@ -19,6 +19,14 @@
        drop 
        foreign key FK_clqcq9lyspxdxcp6o4f3vkelj;
 
+    alter table `application` 
+       drop 
+       foreign key `FKoa6p4s2oyy7tf80xwc4r04vh6`;
+
+    alter table `application` 
+       drop 
+       foreign key `FKmbjdoxi3o93agxosoate4sxbt`;
+
     alter table `authenticated` 
        drop 
        foreign key FK_h52w0f3wjoi68b63wv9vwon57;
@@ -92,6 +100,8 @@
     drop table if exists `audit_record`;
 
     drop table if exists `auditor`;
+
+    drop table if exists `application`;
 
     drop table if exists `authenticated`;
 
