@@ -133,6 +133,10 @@
 			<acme:menu-suboption code="master.menu.auditor.auditRecord.list" action="/auditor/audit-record/list-mine" />
 			<acme:menu-separator />
 			<acme:menu-suboption code="master.menu.worker.application.list" action="/worker/application/list-mine" />
+			<acme:menu-separator />
+			<acme:menu-suboption code="master.menu.auditor.job.list_mine" action="/auditor/job/list_mine" />
+			<acme:menu-separator />
+			<acme:menu-suboption code="master.menu.auditor.job.list_other" action="/auditor/job/list_other" />
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">

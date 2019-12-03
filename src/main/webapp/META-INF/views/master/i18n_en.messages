@@ -103,6 +103,8 @@ master.menu.worker.application.list = Application's list
 
 master.menu.auditor = Auditor
 master.menu.auditor.auditRecord.list = My audit records
+master.menu.auditor.job.list_mine = My jobs
+master.menu.auditor.job.list_other = Other jobs
 
 # master.menu.user-account ####################################################
 
