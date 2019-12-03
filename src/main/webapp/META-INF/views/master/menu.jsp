@@ -74,6 +74,29 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.anonymous.carruibri" action="https://www.linkedin.com/in/carlos-ruiz-briones-bb8401173/"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.announcement" action="/authenticated/announcement/list" />
+			<acme:menu-separator />
+			<acme:menu-suboption code="master.menu.authenticated.offer" action="/authenticated/offer/list" />
+			<acme:menu-separator />		
+			<acme:menu-suboption code="master.menu.authenticated.investor-record" action="/authenticated/investor-record/list" />
+			<acme:menu-separator />	
+			<acme:menu-suboption code="master.menu.authenticated.request.list" action="/authenticated/request_/list"/>
+			<acme:menu-separator />	
+			<acme:menu-suboption code="master.menu.authenticated.challenge.list" action="/authenticated/challenge/list"/>
+			<acme:menu-separator />	
+			<acme:menu-suboption code="master.menu.authenticated.company-record.list" action="/authenticated/company-record/list"/>
+			<acme:menu-separator />
+			<acme:menu-suboption code="master.menu.banner.list.commercial" action="/authenticated/commercial-banner/list" />
+			<acme:menu-separator />
+			<acme:menu-suboption code="master.menu.banner.list.non-commercial" action="/authenticated/non-commercial-banner/list" />
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.job.list" action="/authenticated/job/list"/>
+			<acme:menu-separator />
+			<acme:menu-suboption code="master.menu.authenticated.thread.list" action="/authenticated/thread/list_mine" />
+					
+		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator.list" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
@@ -134,28 +157,6 @@
 			<acme:menu-suboption code="master.menu.worker.application.list" action="/worker/application/list-mine" />
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
-			<acme:menu-suboption code="master.menu.authenticated.announcement" action="/authenticated/announcement/list" />
-			<acme:menu-separator />
-			<acme:menu-suboption code="master.menu.authenticated.offer" action="/authenticated/offer/list" />
-			<acme:menu-separator />		
-			<acme:menu-suboption code="master.menu.authenticated.investor-record" action="/authenticated/investor-record/list" />
-			<acme:menu-separator />	
-			<acme:menu-suboption code="master.menu.authenticated.request.list" action="/authenticated/request_/list"/>
-			<acme:menu-separator />	
-			<acme:menu-suboption code="master.menu.authenticated.challenge.list" action="/authenticated/challenge/list"/>
-			<acme:menu-separator />	
-			<acme:menu-suboption code="master.menu.authenticated.company-record.list" action="/authenticated/company-record/list"/>
-			<acme:menu-separator />
-			<acme:menu-suboption code="master.menu.banner.list.commercial" action="/authenticated/commercial-banner/list" />
-			<acme:menu-separator />
-			<acme:menu-suboption code="master.menu.banner.list.non-commercial" action="/authenticated/non-commercial-banner/list" />
-			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.job.list" action="/authenticated/job/list"/>
-			<acme:menu-separator />
-			<acme:menu-suboption code="master.menu.authenticated.thread.list" action="/authenticated/thread/list_mine" />
-					
-		</acme:menu-option>
 
 	</acme:menu-left>
 
