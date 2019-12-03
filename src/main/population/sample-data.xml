@@ -823,7 +823,6 @@
 	</bean>
 	
 	<!-- Applications -->
-	<!-- DESCRIPTOR -->
 	
 	<bean name="application1" class="acme.entities.applications.Application">
 		<property name="reference" value="EMPP-JOBB:WORR" />
@@ -861,6 +860,8 @@
 		<property name="job" ref="job3"/>
 		<property name="worker" ref="worker1Worker"/>
 	</bean>
+	
+	<!-- DESCRIPTOR -->
 	
 	<bean id="descriptor2" class="acme.entities.descriptors.Descriptor">
 	<property name="description" value="DESC1-JOB2"/>

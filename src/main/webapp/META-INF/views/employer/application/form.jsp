@@ -22,7 +22,7 @@
 	<acme:form-money code="employer.application.form.label.statement" path="statement"/>
 	<acme:form-url code="employer.application.form.label.skills" path="skills"/>
 	<acme:form-textarea code="employer.application.form.label.qualifications" path="qualifications"/>
-	<acme:form-textarea code="employer.application.form.label.job.reference" path="job"/>
+	<acme:form-textbox code="employer.application.form.label.job.reference" path="job.reference"/>
 	
 	<acme:form-return code="employer.application.form.button.return"/>
 
