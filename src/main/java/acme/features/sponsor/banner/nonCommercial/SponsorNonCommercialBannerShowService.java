@@ -1,12 +1,14 @@
 
 package acme.features.sponsor.banner.nonCommercial;
 
+import acme.entities.banners.CommercialBanner;
 import acme.entities.banners.NonCommercialBanner;
 import acme.entities.roles.Sponsor;
 import acme.features.authenticated.banner.noncommercial.AuthenticatedNonCommercialBannerRepository;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Administrator;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +24,13 @@ public class SponsorNonCommercialBannerShowService implements AbstractShowServic
 	public boolean authorise(final Request<NonCommercialBanner> request) {
 		assert request != null;
 
-		return true;
+		Principal principal = request.getPrincipal();
+		int id = request.getModel().getInteger("id");
+		NonCommercialBanner ncm = this.repository.findOne(id);
+		Sponsor actual = this.repository.findSponsor(principal.getAccountId());
+		boolean res = actual != null && actual == ncm.getSponsor();
+
+		return res;
 	}
 
 	@Override
