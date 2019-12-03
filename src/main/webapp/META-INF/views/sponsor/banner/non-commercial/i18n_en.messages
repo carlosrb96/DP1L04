@@ -8,17 +8,17 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.banner.non-commercial.form.button.create = Create
-administrator.banner.non-commercial.form.button.return = Return
+sponsor.banner.non-commercial.form.button.create = Create
+sponsor.banner.non-commercial.form.button.return = Return
 
-administrator.banner.non-commercial.banner = Non commercial banner fields
-administrator.banner.non-commercial.picture = Picture
-administrator.banner.non-commercial.slogan = Slogan
-administrator.banner.non-commercial.targetURL = URL Target
-administrator.banner.non-commercial.jingle = Jingle
+sponsor.banner.non-commercial.banner = Non commercial banner fields
+sponsor.banner.non-commercial.picture = Picture
+sponsor.banner.non-commercial.slogan = Slogan
+sponsor.banner.non-commercial.targetURL = URL Target
+sponsor.banner.non-commercial.jingle = Jingle
 
 banner.non-commercial.slogan = Slogan
 banner.non-commercial.targetURL = Target URL
 
-administrator.banner.non-commercial.form.button.update = Actualizar
-administrator.banner.non-commercial.form.button.delete = Borrar
+sponsor.banner.non-commercial.form.button.update = Actualizar
+sponsor.banner.non-commercial.form.button.delete = Borrar

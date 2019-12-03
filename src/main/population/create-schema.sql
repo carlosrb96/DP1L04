@@ -36,6 +36,7 @@
         `picture` varchar(255),
         `slogan` varchar(255),
         `targeturl` varchar(255),
+        `sponsor_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -69,10 +70,7 @@
         `picture` varchar(255),
         `slogan` varchar(255),
         `targeturl` varchar(255),
-        `cvv` integer,
-        `brand` varchar(255),
-        `expiration_month` integer,
-        `expiration_year` integer,
+        `sponsor_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -212,6 +210,7 @@
         `picture` varchar(255),
         `slogan` varchar(255),
         `targeturl` varchar(255),
+        `sponsor_id` integer,
         `jingle` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;
@@ -284,6 +283,15 @@
         `participants_id` integer not null
     ) engine=InnoDB;
 
+    create table `sponsor` (
+       `id` integer not null,
+        `version` integer not null,
+        `user_account_id` integer,
+        `credit_card_number` varchar(255),
+        `organization_name` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `user_account` (
        `id` integer not null,
         `version` integer not null,
@@ -341,6 +349,16 @@
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+    alter table `banner` 
+       add constraint `FKjoxwdnjr54soq3j89kt3fgrtj` 
+       foreign key (`sponsor_id`) 
+       references `sponsor` (`id`);
+
+    alter table `commercial_banner` 
+       add constraint FK_q9id3wc65gg49afc5tlr1c00n 
+       foreign key (`sponsor_id`) 
+       references `sponsor` (`id`);
+
     alter table `consumer` 
        add constraint FK_6cyha9f1wpj0dpbxrrjddrqed 
        foreign key (`user_account_id`) 
@@ -371,6 +389,11 @@
        foreign key (`thread_id`) 
        references `thread` (`id`);
 
+    alter table `non_commercial_banner` 
+       add constraint FK_2l8gpcwh19e7jj513or4r9dvb 
+       foreign key (`sponsor_id`) 
+       references `sponsor` (`id`);
+
     alter table `provider` 
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 
        foreign key (`user_account_id`) 
@@ -395,3 +418,8 @@
        add constraint `FKjsja3s5mr66x5nxm9dd8kut3r` 
        foreign key (`thread_id`) 
        references `thread` (`id`);
+
+    alter table `sponsor` 
+       add constraint FK_20xk0ev32hlg96kqynl6laie2 
+       foreign key (`user_account_id`) 
+       references `user_account` (`id`);

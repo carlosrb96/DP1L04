@@ -11,12 +11,12 @@
 
 <tiles-definitions>
 
-	<definition name="administrator/non-commercial-banner/form" extends="master">
-		<put-attribute name="body" type="template" value="../administrator/banner/non-commercial/form.jsp" />
+	<definition name="sponsor/non-commercial-banner/form" extends="master">
+		<put-attribute name="body" type="template" value="../sponsor/banner/non-commercial/form.jsp" />
 	</definition>
 
-	<definition name="administrator/non-commercial-banner/list" extends="master">
-		<put-attribute name="body" type="template" value="../administrator/banner/non-commercial/list.jsp" />
+	<definition name="sponsor/non-commercial-banner/list" extends="master">
+		<put-attribute name="body" type="template" value="../sponsor/banner/non-commercial/list.jsp" />
 	</definition>
 
 </tiles-definitions>

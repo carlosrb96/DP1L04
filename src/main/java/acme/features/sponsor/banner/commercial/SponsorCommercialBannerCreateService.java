@@ -1,24 +1,24 @@
 
-package acme.features.administrator.banner.commercial;
+package acme.features.sponsor.banner.commercial;
 
 import acme.entities.banners.CommercialBanner;
+import acme.entities.roles.Sponsor;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Administrator;
-import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractCreateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.Year;
 import java.util.Date;
 
 @Service
-public class AdministratorCommercialBannerCreateService implements AbstractCreateService<Administrator, CommercialBanner> {
+public class SponsorCommercialBannerCreateService implements AbstractCreateService<Sponsor, CommercialBanner> {
 
 	@Autowired
-	private AdministratorCommercialBannerRepository repository;
+	private SponsorCommercialBannerRepository repository;
+
 
 
 	@Override
@@ -43,7 +43,11 @@ public class AdministratorCommercialBannerCreateService implements AbstractCreat
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "picture", "targetURL", "slogan", "brand", "CVV", "expirationMonth", "expirationYear");
+		Sponsor sponsor = this.repository.findSponsor(request.getPrincipal().getAccountId() + 1);
+		boolean invalidCreditCard = sponsor.getCreditCardNumber() != null && !sponsor.getCreditCardNumber().equals("");
+
+		request.unbind(entity, model, "picture", "targetURL", "slogan");
+		request.transfer(model, "invalidCreditCard");
 
 	}
 
@@ -51,13 +55,11 @@ public class AdministratorCommercialBannerCreateService implements AbstractCreat
 	public CommercialBanner instantiate(final Request<CommercialBanner> request) {
 		CommercialBanner cb = new CommercialBanner();
 		Date date = new Date();
-		cb.setBrand("");
-		cb.setCVV(100);
-		cb.setExpirationMonth(date.getMonth() + 1);
-		cb.setExpirationYear(Year.now().getValue());
 		cb.setPicture("");
 		cb.setSlogan("");
 		cb.setTargetURL("");
+		Sponsor sponsor = this.repository.findSponsor(request.getPrincipal().getAccountId() + 1);
+		cb.setSponsor(sponsor);
 
 		return cb;
 	}
@@ -67,6 +69,10 @@ public class AdministratorCommercialBannerCreateService implements AbstractCreat
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		Sponsor sponsor = this.repository.findSponsor(request.getPrincipal().getAccountId() + 1);
+		boolean invalidCreditCard = sponsor.getCreditCardNumber() != null && !sponsor.getCreditCardNumber().equals("");
+		errors.state(request, invalidCreditCard, "creditCardNumber", "error.principal.creditCardNumber");
 
 	}
 

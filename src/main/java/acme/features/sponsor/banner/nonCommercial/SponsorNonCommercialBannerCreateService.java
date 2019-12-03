@@ -1,21 +1,20 @@
 
-package acme.features.administrator.banner.noncommercial;
+package acme.features.sponsor.banner.nonCommercial;
 
 import acme.entities.banners.NonCommercialBanner;
+import acme.entities.roles.Sponsor;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Administrator;
-import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractCreateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AdministratorNonCommercialBannerCreateService implements AbstractCreateService<Administrator, NonCommercialBanner> {
+public class SponsorNonCommercialBannerCreateService implements AbstractCreateService<Sponsor, NonCommercialBanner> {
 
     @Autowired
-    private AdministratorNonCommercialBannerRepository repository;
+    private SponsorNonCommercialBannerRepository repository;
 
 
     @Override
@@ -48,11 +47,12 @@ public class AdministratorNonCommercialBannerCreateService implements AbstractCr
     @Override
     public NonCommercialBanner instantiate(final Request<NonCommercialBanner> request) {
         NonCommercialBanner ncb = new NonCommercialBanner();
-
+        Sponsor sponsor = this.repository.findSponsor(request.getPrincipal().getAccountId() + 1);
         ncb.setJingle("");
         ncb.setPicture("");
         ncb.setSlogan("");
         ncb.setTargetURL("");
+        ncb.setSponsor(sponsor);
 
         return ncb;
     }
