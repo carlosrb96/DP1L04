@@ -18,6 +18,7 @@ authenticated.job.form.label.deadline = Deadline
 authenticated.job.form.label.salary = Salary
 authenticated.job.form.label.moreInfo = More information
 authenticated.job.form.label.descriptor = Descriptor
+authenticated.audit.form.label.auditRecord = Audit Records
 
 
 authenticated.job.form.button.return = Return
