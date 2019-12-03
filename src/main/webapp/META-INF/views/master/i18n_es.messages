@@ -66,10 +66,6 @@ master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.customization.list = Lista de Customizacion
 master.menu.administrator.challenge.list = Lista de retos
 master.menu.administrator.challenge.create = Crear Reto
-master.menu.administrator.banner.non-commercial.list = Lista de baners no comerciales
-master.menu.administrator.banner.commercial.list = Lista de baners comerciales
-master.menu.administrator.banner.commercial.create = Crear baner comercial
-master.menu.administrator.banner.non-commercial.create = Crear baner no comercial
 master.menu.administrator.investor-record.list = Lista de registro de inversionistas
 master.menu.administrator.investor-record.create = Crear un registro de inversionistas
 master.menu.administrator.announcement.create = Crear anuncio
@@ -155,3 +151,11 @@ master.menu.anonymous.horrilloBulletin.create = Crear bulletin de Horrillo
 
 master.menu.anonymous.perezBulletin.list = Lista de bulletins de Perez
 master.menu.anonymous.perezBulletin.create = Crear bulletin de Perez
+
+
+# master.banners ##############################################################
+master.menu.sponsor = Sponsor
+master.menu.sponsor.banner.commercial.list = Lista de baners comerciales
+master.menu.sponsor.banner.commercial.create = Crear baner comercial
+master.menu.sponsor.banner.non-commercial.create = Crear baner no comercial
+master.menu.sponsor.banner.non-commercial.list = Lista de baners no comerciales
