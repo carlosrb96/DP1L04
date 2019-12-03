@@ -18,13 +18,13 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="employer.job.form.label.reference" path="reference"/>
-	<acme:form-textbox code="employer.job.form.label.title" path="title"/>
-	<acme:form-moment code="employer.job.form.label.deadline" path="deadline"/>
-	<acme:form-money code="employer.job.form.label.salary" path="salary"/>
-	<acme:form-url code="employer.job.form.label.moreInfo" path="moreInfo"/>
+	<acme:form-textbox code="authenticated.job.form.label.reference" path="reference"/>
+	<acme:form-textbox code="authenticated.job.form.label.title" path="title"/>
+	<acme:form-moment code="authenticated.job.form.label.deadline" path="deadline"/>
+	<acme:form-money code="authenticated.job.form.label.salary" path="salary"/>
+	<acme:form-url code="authenticated.job.form.label.moreInfo" path="moreInfo"/>
 <p>
-	<a href="employer/descriptor/show?jobId=${id}"><spring:message code="employer.job.form.label.descriptor" /></a>
+	<a href="authenticated/descriptor/show?jobId=${id}"><spring:message code="authenticated.job.form.label.descriptor" /></a>
 </p>
 
 	

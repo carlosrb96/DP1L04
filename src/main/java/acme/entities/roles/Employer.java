@@ -13,11 +13,11 @@ import lombok.Setter;
 @Setter
 public class Employer extends UserRole {
 
-	// Serialisation identifier -------------------
+	// Serialisation Identifier -----------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
 
-	// Attributes ----------------------
+	// Attributes -------------------------------------------------------
 
 	@NotBlank
 	private String				company;
@@ -25,8 +25,8 @@ public class Employer extends UserRole {
 	@NotBlank
 	private String				sector;
 
-	// Derived attributes ----------------------
+	// Derived attributes -----------------------------------------------
 
-	// Relationships ------------------------
+	// Relationships ----------------------------------------------------
 
 }

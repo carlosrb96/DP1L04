@@ -13,21 +13,14 @@
 <%@page language="java"%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="employer.job.form.label.reference" path="reference"/>
-	<acme:form-textbox code="employer.job.form.label.title" path="title"/>
-	<acme:form-moment code="employer.job.form.label.deadline" path="deadline"/>
-	<acme:form-money code="employer.job.form.label.salary" path="salary"/>
-	<acme:form-url code="employer.job.form.label.moreInfo" path="moreInfo"/>
+	<acme:form-textarea code="authenticated.descriptor.form.label.description" path="description"/>
 <p>
-	<a href="employer/descriptor/show?jobId=${id}"><spring:message code="employer.job.form.label.descriptor" /></a>
+	<a href="authenticated/duty/list?descriptorId=${id}"><spring:message code="authenticated.descriptor.form.label.duties" /></a>
 </p>
-
-	
-	<acme:form-return code="employer.job.form.button.return"/>
 
 </acme:form>

@@ -512,7 +512,7 @@
 	
 	<!-- Employers -->
 	
-	<bean name="employer1UserAccount" class="acme.framework.entities.UserAccount">
+	<bean id="employer1UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="employer1"/>	
 		<property name="password" value="employer1"/>
 		<property name="enabled" value="true" />
@@ -531,17 +531,17 @@
 		</property>	
 	</bean>
 	
-	<bean name="employer1Employer" class="acme.entities.roles.Employer">
+	<bean id="employer1Employer" class="acme.entities.roles.Employer">
 		<property name="company" value="Employer 1, Inc."/>
 		<property name="sector" value="Sector 1"/>
 		<property name="userAccount" ref="employer1UserAccount"/>
 	</bean>
 	
-	<bean name="employer1Authenticated" class="acme.framework.entities.Authenticated">
+	<bean id="employer1Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="employer1UserAccount"/>
 	</bean>
 	
-	<bean name="employer2UserAccount" class="acme.framework.entities.UserAccount">
+	<bean id="employer2UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="employer2"/>	
 		<property name="password" value="employer2"/>
 		<property name="enabled" value="true" />
@@ -560,109 +560,207 @@
 		</property>	
 	</bean>
 	
-	<bean name="employer2Employer" class="acme.entities.roles.Employer">
+	<bean id="employer2Employer" class="acme.entities.roles.Employer">
 		<property name="company" value="Employer 2, Inc."/>
 		<property name="sector" value="Sector 2"/>
 		<property name="userAccount" ref="employer2UserAccount"/>
 	</bean>
 	
-	<bean name="employer2Authenticated" class="acme.framework.entities.Authenticated">
+	<bean id="employer2Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="employer2UserAccount"/>
 	</bean>
 	
-	<!-- Workers -->
-	
-	<bean name="worker1UserAccount" class="acme.framework.entities.UserAccount">
-		<property name="username" value="worker1"/>	
-		<property name="password" value="worker1"/>
-		<property name="enabled" value="true" />
-		<property name="identity">
-			<bean class="acme.datatypes.UserIdentity">
-				<property name="name" value="Worker" />
-				<property name="surname" value="One" />
-				<property name="email" value="worker1@acme.com" />
-			</bean>
-		</property>
-		<property name="roles">
-			<list>
-				<ref bean="worker1Worker"/>
-				<ref bean="worker1Authenticated"/>
-			</list>
-		</property>	
-	</bean>
-	
-	<bean name="worker1Worker" class="acme.entities.roles.Worker">
-		<property name="qualificationRecord" value="Excellent"/>
-		<property name="skillsRecord" value="Java,Python"/>
-		<property name="userAccount" ref="worker1UserAccount"/>
-	</bean>
-	
-	<bean name="worker1Authenticated" class="acme.framework.entities.Authenticated">
-		<property name="userAccount" ref="worker1UserAccount"/>
-	</bean>
-	
-	
 	<!-- Jobs -->
 	
-	<bean name="job1" class="acme.entities.jobs.Job">
+	<bean id="job1" class="acme.entities.jobs.Job">
 		<property name="reference" value="EMP1-JOB1" />
 		<property name="title" value="Title 1"/>
 		<property name="deadline" value ="2030/12/11 23:59" />
 		<property name="salary" value="€ 15,000.98"/>
-		<property name="description" value="Lorem ipsum sit dolor amet."/>
 		<property name="moreInfo" value="http://www.example.com"/>
-		<property name="finalMode" value="true"/>
+		<property name="status" value="published"/>
 		<property name="employer" ref="employer1Employer"/>
-		<property name="worker" ref="worker1Worker"/>
+		<property name="descriptor" ref="descriptor1"/>
 	</bean>
 	
-	<bean name="job2" class="acme.entities.jobs.Job">
+	<bean id="job2" class="acme.entities.jobs.Job">
 		<property name="reference" value="EMP1-JOB2" />
 		<property name="title" value="Title 2"/>
 		<property name="deadline" value ="2030/12/11 23:59" />
 		<property name="salary" value="€ 20,000.00"/>
-		<property name="description" value="Lorem ipsum sit dolor amet."/>
 		<property name="moreInfo" value="http://www.example.com"/>
-		<property name="finalMode" value="true"/>
+		<property name="status" value="published"/>
 		<property name="employer" ref="employer1Employer"/>
-		<property name="worker" ref="worker1Worker"/>
+		<property name="descriptor" ref="descriptor2"/>
 	</bean>
 	
-	<bean name="job3" class="acme.entities.jobs.Job">
+	<bean id="job3" class="acme.entities.jobs.Job">
 		<property name="reference" value="EMP1-JOB3" />
 		<property name="title" value="Title 3"/>
 		<property name="deadline" value ="2030/12/11 23:59" />
 		<property name="salary" value="€ 25,000.00"/>
-		<property name="description" value="Lorem ipsum sit dolor amet."/>
 		<property name="moreInfo" value="http://www.example.com"/>
-		<property name="finalMode" value="true"/>
+		<property name="status" value="published"/>
 		<property name="employer" ref="employer1Employer"/>
-		<property name="worker" ref="worker1Worker"/>
+		<property name="descriptor" ref="descriptor3"/>
 	</bean>
 	
-	<bean name="job4" class="acme.entities.jobs.Job">
+	<bean id="job4" class="acme.entities.jobs.Job">
 		<property name="reference" value="EMP1-JOB4" />
 		<property name="title" value="Title 4"/>
 		<property name="deadline" value ="2030/12/11 23:59" />
 		<property name="salary" value="€ 30,000.00"/>
-		<property name="description" value="Lorem ipsum sit dolor amet."/>
 		<property name="moreInfo" value="http://www.example.com"/>
-		<property name="finalMode" value="true"/>
+		<property name="status" value="draft"/>
 		<property name="employer" ref="employer1Employer"/>
-		<property name="worker" ref="worker1Worker"/>
+		<property name="descriptor" ref="descriptor4"/>
 	</bean>
 	
-	<bean name="job5" class="acme.entities.jobs.Job">
+	<bean id="job5" class="acme.entities.jobs.Job">
 		<property name="reference" value="EMP1-JOB5" />
 		<property name="title" value="Title 5"/>
 		<property name="deadline" value ="2030/12/11 23:59" />
 		<property name="salary" value="€ 20,000.00"/>
-		<property name="description" value="Lorem ipsum sit dolor amet."/>
 		<property name="moreInfo" value="http://www.example.com"/>
-		<property name="finalMode" value="true"/>
+		<property name="status" value="published"/>
 		<property name="employer" ref="employer2Employer"/>
+		<property name="descriptor" ref="descriptor5"/>
 	</bean>
 	
+	<!-- DESCRIPTOR -->
 	
+	<bean id="descriptor1" class="acme.entities.descriptors.Descriptor">
+	<property name="description" value="DESC1-JOB1"/>
+	<property name="job" ref="job1"/>
+	</bean>
+	
+	<bean id="descriptor2" class="acme.entities.descriptors.Descriptor">
+	<property name="description" value="DESC1-JOB2"/>
+	<property name="job" ref="job2"/>
+	</bean>
+	
+	<bean id="descriptor3" class="acme.entities.descriptors.Descriptor">
+	<property name="description" value="DESC1-JOB3"/>
+	<property name="job" ref="job3"/>
+	</bean>
+	
+	<bean id="descriptor4" class="acme.entities.descriptors.Descriptor">
+	<property name="description" value="DESC1-JOB4"/>
+	<property name="job" ref="job4"/>
+	</bean>
+	
+	<bean id="descriptor5" class="acme.entities.descriptors.Descriptor">
+	<property name="description" value="DESC1-JOB5"/>
+	<property name="job" ref="job5"/>
+	</bean>
+	
+	<!-- DUTIES -->
+	
+	<bean id="duty1Descriptor1" class="acme.entities.duties.Duty">
+	<property name="title" value="DUTY1-DESC1"/>
+	<property name="description" value="lorem ipsum dolor sit amet"/>
+	<property name="aproxTime" value="10"/>
+	<property name="descriptor" ref="descriptor1"/>
+	</bean>
+	
+	<bean id="duty2Descriptor1" class="acme.entities.duties.Duty">
+	<property name="title" value="DUTY2-DESC1"/>
+	<property name="description" value="lorem ipsum dolor sit amet"/>
+	<property name="aproxTime" value="30"/>
+	<property name="descriptor" ref="descriptor1"/>
+	</bean>
+	
+	<bean id="duty3Descriptor1" class="acme.entities.duties.Duty">
+	<property name="title" value="DUTY3-DESC1"/>
+	<property name="description" value="lorem ipsum dolor sit amet"/>
+	<property name="aproxTime" value="10"/>
+	<property name="descriptor" ref="descriptor1"/>
+	</bean>
+	
+	<bean id="duty4Descriptor1" class="acme.entities.duties.Duty">
+	<property name="title" value="DUTY4-DESC1"/>
+	<property name="description" value="lorem ipsum dolor sit amet"/>
+	<property name="aproxTime" value="50"/>
+	<property name="descriptor" ref="descriptor1"/>
+	</bean>
+	
+	<bean id="duty1Descriptor2" class="acme.entities.duties.Duty">
+	<property name="title" value="DUTY1-DESC2"/>
+	<property name="description" value="lorem ipsum dolor sit amet"/>
+	<property name="aproxTime" value="30"/>
+	<property name="descriptor" ref="descriptor2"/>
+	</bean>
+	
+	<bean id="duty2Descriptor2" class="acme.entities.duties.Duty">
+	<property name="title" value="DUTY2-DESC2"/>
+	<property name="description" value="lorem ipsum dolor sit amet"/>
+	<property name="aproxTime" value="10"/>
+	<property name="descriptor" ref="descriptor2"/>
+	</bean>
+	
+	<bean id="duty3Descriptor2" class="acme.entities.duties.Duty">
+	<property name="title" value="DUTY3-DESC2"/>
+	<property name="description" value="lorem ipsum dolor sit amet"/>
+	<property name="aproxTime" value="60"/>
+	<property name="descriptor" ref="descriptor2"/>
+	</bean>
+	
+	<bean id="duty1Descriptor3" class="acme.entities.duties.Duty">
+	<property name="title" value="DUTY1-DESC3"/>
+	<property name="description" value="lorem ipsum dolor sit amet"/>
+	<property name="aproxTime" value="70"/>
+	<property name="descriptor" ref="descriptor3"/>
+	</bean>
+	
+	<bean id="duty2Descriptor3" class="acme.entities.duties.Duty">
+	<property name="title" value="DUTY2-DESC3"/>
+	<property name="description" value="lorem ipsum dolor sit amet"/>
+	<property name="aproxTime" value="30"/>
+	<property name="descriptor" ref="descriptor3"/>
+	</bean>
+	
+	<bean id="duty1Descriptor4" class="acme.entities.duties.Duty">
+	<property name="title" value="DUTY1-DESC4"/>
+	<property name="description" value="lorem ipsum dolor sit amet"/>
+	<property name="aproxTime" value="100"/>
+	<property name="descriptor" ref="descriptor4"/>
+	</bean>
+	
+	<bean id="duty1Descriptor5" class="acme.entities.duties.Duty">
+	<property name="title" value="DUTY1-DESC5"/>
+	<property name="description" value="lorem ipsum dolor sit amet"/>
+	<property name="aproxTime" value="20"/>
+	<property name="descriptor" ref="descriptor5"/>
+	</bean>
+	
+	<bean id="duty2Descriptor5" class="acme.entities.duties.Duty">
+	<property name="title" value="DUTY2-DESC5"/>
+	<property name="description" value="lorem ipsum dolor sit amet"/>
+	<property name="aproxTime" value="20"/>
+	<property name="descriptor" ref="descriptor5"/>
+	</bean>
+	
+	<bean id="duty3Descriptor5" class="acme.entities.duties.Duty">
+	<property name="title" value="DUTY3-DESC5"/>
+	<property name="description" value="lorem ipsum dolor sit amet"/>
+	<property name="aproxTime" value="20"/>
+	<property name="descriptor" ref="descriptor5"/>
+	</bean>
+	
+	<bean id="duty4Descriptor5" class="acme.entities.duties.Duty">
+	<property name="title" value="DUTY4-DESC5"/>
+	<property name="description" value="lorem ipsum dolor sit amet"/>
+	<property name="aproxTime" value="20"/>
+	<property name="descriptor" ref="descriptor5"/>
+	</bean>
+	
+	<bean id="duty5Descriptor5" class="acme.entities.duties.Duty">
+	<property name="title" value="DUTY5-DESC5"/>
+	<property name="description" value="lorem ipsum dolor sit amet"/>
+	<property name="aproxTime" value="20"/>
+	<property name="descriptor" ref="descriptor5"/>
+	</bean>
+	
+
 	
 </beans>

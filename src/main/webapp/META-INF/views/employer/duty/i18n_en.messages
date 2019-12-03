@@ -8,16 +8,12 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-employer.job.list.label.reference = Reference
-employer.job.list.label.deadline = Deadline
-employer.job.list.label.title = Title
+employer.duty.list.label.title = Title
 
-employer.job.form.label.reference = Reference
-employer.job.form.label.title = Title
-employer.job.form.label.deadline = Deadline
-employer.job.form.label.salary = Salary
-employer.job.form.label.moreInfo = More information
-employer.job.form.label.descriptor = Descriptor
+employer.duty.form.label.title = Title
+employer.duty.form.label.description = Description
+employer.duty.form.label.aproxTime = Aproximate percent of time
+
 
 
 employer.job.form.button.return = Return
