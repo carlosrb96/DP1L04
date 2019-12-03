@@ -28,7 +28,7 @@
 </p>
 
 <p>
-	<a href="authenticated/audit-record/list?jobId=${id}"><spring:message code="authenticated.audit.form.label.auditRecord" /></a>
+	<a href="authenticated/audit-record/list?jobId=${id}"><spring:message code="authenticated.job.form.label.auditRecord" /></a>
 </p>
 
 	

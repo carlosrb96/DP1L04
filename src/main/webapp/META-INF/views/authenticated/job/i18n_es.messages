@@ -18,7 +18,7 @@ authenticated.job.form.label.deadline = Fecha límite
 authenticated.job.form.label.salary = Salario
 authenticated.job.form.label.moreInfo = Más información
 authenticated.job.form.label.descriptor = Descriptor
-authenticated.audit.form.label.auditRecord = Registros de auditoría
+authenticated.job.form.label.auditRecord = Registros de auditoría
 
 
 authenticated.job.form.button.return = Volver

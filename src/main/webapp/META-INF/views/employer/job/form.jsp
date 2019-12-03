@@ -27,6 +27,10 @@
 	<a href="employer/descriptor/show?jobId=${id}"><spring:message code="employer.job.form.label.descriptor" /></a>
 </p>
 
+<p>
+	<a href="employer/audit-record/list?jobId=${id}"><spring:message code="employer.job.form.label.auditRecord" /></a>
+</p>
+
 	
 	<acme:form-return code="employer.job.form.button.return"/>
 
