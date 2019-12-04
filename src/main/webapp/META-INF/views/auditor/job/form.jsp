@@ -22,9 +22,13 @@
 	<acme:form-textbox code="auditor.job.form.label.title" path="title"/>
 	<acme:form-moment code="auditor.job.form.label.deadline" path="deadline"/>
 	<acme:form-money code="auditor.job.form.label.salary" path="salary"/>
-	<acme:form-url code="auditor.job.form.label.moreInfo" path="moreInfo"/>
+	<acme:form-url code="auditor.job.form.label.link" path="link"/>
 <p>
 	<a href="auditor/descriptor/show?jobId=${id}"><spring:message code="auditor.job.form.label.descriptor" /></a>
+</p>
+
+<p>
+	<a href="auditor/audit-record/list?jobId=${id}"><spring:message code="auditor.job.form.label.auditRecord" /></a>
 </p>
 
 	

@@ -59,8 +59,6 @@ public class Job extends DomainEntity {
 	@URL
 	private String				link;
 
-	private String				moreInfo;
-
 	// Relationships -----------------------------------------------------------
 
 	@NotNull

@@ -13,6 +13,7 @@
 package acme.features.authenticated.job;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -28,5 +29,8 @@ public interface AuthenticatedJobRepository extends AbstractRepository {
 
 	@Query("select j from Job j where j.status like ?1")
 	Collection<Job> findManyByStatus(String status);
+
+	@Query("select j from Job j where j.status = 'published' and j.deadline > ?1")
+	Collection<Job> findManyActiveJobs(Date now);
 
 }

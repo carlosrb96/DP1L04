@@ -2,6 +2,7 @@
 package acme.features.authenticated.job;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,8 +45,9 @@ public class AuthenticatedJobListService implements AbstractListService<Authenti
 		assert request != null;
 
 		Collection<Job> result;
+		Date now = new Date(System.currentTimeMillis() - 1);
 
-		result = this.repository.findManyByStatus("published");
+		result = this.repository.findManyActiveJobs(now);
 
 		return result;
 	}

@@ -36,7 +36,7 @@ public class AuditorJobShowService implements AbstractShowService<Auditor, Job> 
 		job = this.repository.findOneJobById(jobId);
 		auditor = this.repository.findAuditorByJob(jobId);
 		principal = request.getPrincipal();
-		result = job.getStatus().equals("published") || job.getStatus().equals("draft") && auditor.getUserAccount().getId() == principal.getAccountId();
+		result = job.getStatus().equals("published") || job.getStatus().equals("draft");
 
 		return result;
 	}
@@ -48,7 +48,7 @@ public class AuditorJobShowService implements AbstractShowService<Auditor, Job> 
 		assert model != null;
 
 		request.unbind(entity, model, "reference", "title", "deadline");
-		request.unbind(entity, model, "salary", "moreInfo", "status");
+		request.unbind(entity, model, "salary", "link", "status");
 	}
 
 	@Override

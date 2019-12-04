@@ -16,8 +16,8 @@ auditor.job.form.label.reference = Referencia
 auditor.job.form.label.title = Título
 auditor.job.form.label.deadline = Fecha límite
 auditor.job.form.label.salary = Salario
-auditor.job.form.label.moreInfo = Más información
+auditor.job.form.label.link = Más información
 auditor.job.form.label.descriptor = Descriptor
-
+auditor.job.form.label.auditRecord = Registros de auditoría
 
 auditor.job.form.button.return = Volver

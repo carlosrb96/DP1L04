@@ -16,7 +16,7 @@ authenticated.job.form.label.reference = Referencia
 authenticated.job.form.label.title = Título
 authenticated.job.form.label.deadline = Fecha límite
 authenticated.job.form.label.salary = Salario
-authenticated.job.form.label.moreInfo = Más información
+authenticated.job.form.label.link = Más información
 authenticated.job.form.label.descriptor = Descriptor
 authenticated.job.form.label.auditRecord = Registros de auditoría
 
