@@ -17,7 +17,7 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<acme:form>
+<acme:form readonly="true">
 	<fieldset>
 	<legend>
 		<acme:message code="sponsor.banner.commercial.banner" />
