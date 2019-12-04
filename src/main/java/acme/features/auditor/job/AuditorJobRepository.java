@@ -10,27 +10,30 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.job;
+package acme.features.auditor.job;
 
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.jobs.Job;
+import acme.entities.roles.Auditor;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AuthenticatedJobRepository extends AbstractRepository {
+public interface AuditorJobRepository extends AbstractRepository {
 
 	@Query("select j from Job j where j.id= ?1")
 	Job findOneJobById(int id);
 
-	@Query("select j from Job j where j.status like ?1")
-	Collection<Job> findManyByStatus(String status);
+	@Query("select ar.job from AuditRecord ar where ar.job.status = 'published' and ar.auditor.id = ?1")
+	Collection<Job> findManyByAuditorId(int auditorId);
 
-	@Query("select j from Job j where j.status = 'published' and j.deadline > ?1")
-	Collection<Job> findManyActiveJobs(Date now);
+	@Query("select ar.job from AuditRecord ar where ar.job.status = 'published' and ar.auditor.id != ?1")
+	Collection<Job> findManyOtherByAuditorId(int auditorId);
+
+	@Query("select ar.auditor from AuditRecord ar where ar.job.id = ?1")
+	Auditor findAuditorByJob(int jobId);
 
 }

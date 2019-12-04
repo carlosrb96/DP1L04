@@ -209,7 +209,6 @@
         `version` integer not null,
         `deadline` datetime(6),
         `link` varchar(255),
-        `more_info` varchar(255),
         `reference` varchar(255),
         `salary_amount` double precision,
         `salary_currency` varchar(255),

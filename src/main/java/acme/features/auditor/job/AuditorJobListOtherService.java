@@ -1,28 +1,28 @@
 
-package acme.features.authenticated.job;
+package acme.features.auditor.job;
 
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.jobs.Job;
+import acme.entities.roles.Auditor;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Authenticated;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AuthenticatedJobListService implements AbstractListService<Authenticated, Job> {
+public class AuditorJobListOtherService implements AbstractListService<Auditor, Job> {
 
 	// Internal state ---------------
 
 	@Autowired
-	AuthenticatedJobRepository repository;
+	AuditorJobRepository repository;
 
 
-	// AbstractListService<Authenticated, Job> interface ---------------
+	// AbstractListService<Employer, Job> interface ---------------
 
 	@Override
 	public boolean authorise(final Request<Job> request) {
@@ -45,9 +45,10 @@ public class AuthenticatedJobListService implements AbstractListService<Authenti
 		assert request != null;
 
 		Collection<Job> result;
-		Date now = new Date(System.currentTimeMillis() - 1);
+		Principal principal;
 
-		result = this.repository.findManyActiveJobs(now);
+		principal = request.getPrincipal();
+		result = this.repository.findManyOtherByAuditorId(principal.getActiveRoleId());
 
 		return result;
 	}

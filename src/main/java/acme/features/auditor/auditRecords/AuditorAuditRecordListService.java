@@ -14,7 +14,7 @@ import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AuditorAuditRecordListMineService implements AbstractListService<Auditor, AuditRecord> {
+public class AuditorAuditRecordListService implements AbstractListService<Auditor, AuditRecord> {
 
 	@Autowired
 	private AuditorAuditRecordRepository repository;
@@ -23,7 +23,22 @@ public class AuditorAuditRecordListMineService implements AbstractListService<Au
 	@Override
 	public boolean authorise(final Request<AuditRecord> request) {
 		assert request != null;
-		return true;
+
+		Principal principal = request.getPrincipal();
+		int jobId = request.getModel().getInteger("jobId");
+		Collection<AuditRecord> records;
+		boolean result = true;
+
+		records = this.repository.findManyByJobId(jobId);
+		for (AuditRecord a : records) {
+			if (a.getAuditor().getId() != principal.getActiveRoleId() && a.getStatus().equals("draft")) {
+				result = false;
+				break;
+			}
+
+		}
+
+		return result;
 	}
 
 	@Override
@@ -43,8 +58,13 @@ public class AuditorAuditRecordListMineService implements AbstractListService<Au
 		Principal principal;
 
 		principal = request.getPrincipal();
-		int id = principal.getAccountId();
-		res = this.repository.findManyByAuditorId(id);
+		int jobId = request.getModel().getInteger("jobId");
+		res = this.repository.findManyByJobId(jobId);
+		for (AuditRecord a : res) {
+			if (a.getAuditor().getId() != principal.getActiveRoleId() && a.getStatus().equals("draft")) {
+				res.remove(a);
+			}
+		}
 
 		return res;
 	}

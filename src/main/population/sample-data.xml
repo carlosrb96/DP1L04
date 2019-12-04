@@ -772,7 +772,7 @@
 		<property name="title" value="Title 1"/>
 		<property name="deadline" value ="2030/12/11 23:59" />
 		<property name="salary" value="€ 15,000.98"/>
-		<property name="moreInfo" value="http://www.example.com"/>
+		<property name="link" value="http://www.example.com"/>
 		<property name="status" value="published"/>
 		<property name="employer" ref="employer1Employer"/>
 		<property name="descriptor" ref="descriptor1"/>
@@ -781,9 +781,9 @@
 	<bean name="job2" class="acme.entities.jobs.Job">
 		<property name="reference" value="EMPR-JOBR" />
 		<property name="title" value="Title 2"/>
-		<property name="deadline" value ="2030/12/11 23:59" />
+		<property name="deadline" value ="2018/12/11 23:59" />
 		<property name="salary" value="€ 20,000.00"/>
-		<property name="moreInfo" value="http://www.example.com"/>
+		<property name="link" value="http://www.example.com"/>
 		<property name="status" value="published"/>
 		<property name="employer" ref="employer1Employer"/>
 		<property name="descriptor" ref="descriptor2"/>
@@ -794,7 +794,7 @@
 		<property name="title" value="Title 3"/>
 		<property name="deadline" value ="2030/12/11 23:59" />
 		<property name="salary" value="€ 25,000.00"/>
-		<property name="moreInfo" value="http://www.example.com"/>
+		<property name="link" value="http://www.example.com"/>
 		<property name="status" value="published"/>
 		<property name="employer" ref="employer1Employer"/>
 		<property name="descriptor" ref="descriptor3"/>
@@ -805,7 +805,7 @@
 		<property name="title" value="Title 4"/>
 		<property name="deadline" value ="2030/12/11 23:59" />
 		<property name="salary" value="€ 30,000.00"/>
-		<property name="moreInfo" value="http://www.example.com"/>
+		<property name="link" value="http://www.example.com"/>
 		<property name="status" value="draft"/>
 		<property name="employer" ref="employer1Employer"/>
 		<property name="descriptor" ref="descriptor4"/>
@@ -816,7 +816,7 @@
 		<property name="title" value="Title 5"/>
 		<property name="deadline" value ="2030/12/11 23:59" />
 		<property name="salary" value="€ 20,000.00"/>
-		<property name="moreInfo" value="http://www.example.com"/>
+		<property name="link" value="http://www.example.com"/>
 		<property name="status" value="published"/>
 		<property name="employer" ref="employer2Employer"/>
 		<property name="descriptor" ref="descriptor5"/>

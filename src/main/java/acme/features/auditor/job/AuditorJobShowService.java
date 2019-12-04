@@ -1,25 +1,26 @@
 
-package acme.features.authenticated.job;
+package acme.features.auditor.job;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.jobs.Job;
+import acme.entities.roles.Auditor;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Authenticated;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class AuthenticatedJobShowService implements AbstractShowService<Authenticated, Job> {
+public class AuditorJobShowService implements AbstractShowService<Auditor, Job> {
 
 	// Internal state ------------
 
 	@Autowired
-	AuthenticatedJobRepository repository;
+	AuditorJobRepository repository;
 
 
-	// AbstractListService<Employer, Job> interface -----------------
+	// AbstractListService<Auditor, Job> interface -----------------
 
 	@Override
 	public boolean authorise(final Request<Job> request) {
@@ -28,10 +29,14 @@ public class AuthenticatedJobShowService implements AbstractShowService<Authenti
 		boolean result;
 		int jobId;
 		Job job;
+		Auditor auditor;
+		Principal principal;
 
 		jobId = request.getModel().getInteger("id");
 		job = this.repository.findOneJobById(jobId);
-		result = job.getStatus().equals("published");
+		auditor = this.repository.findAuditorByJob(jobId);
+		principal = request.getPrincipal();
+		result = job.getStatus().equals("published") || job.getStatus().equals("draft");
 
 		return result;
 	}
